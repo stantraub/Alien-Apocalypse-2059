@@ -1,4 +1,4 @@
-# MERN Zombies Project Proposal
+# MERN Sideshooter Project Proposal
 
 ## Background and Overview
 
