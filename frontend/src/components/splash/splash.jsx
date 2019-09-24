@@ -5,7 +5,7 @@ import { Link, withRouter } from 'react-router-dom';
 class Splash extends React.Component {
     render() {
         return(
-            <div>
+            <div className="login-signup-form">
                 <Link to="/login">
                     Sign In
                 </Link>
