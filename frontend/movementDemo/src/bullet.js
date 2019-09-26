@@ -17,10 +17,14 @@ class Bullet extends MovingObject {
   }
   move() {
     this.x += this.xVel
+    if ( this.x < 0 || this.x > 1000){
+      this.remove();
+    }
   }
   collideWith(otherObject) {
     if (otherObject instanceof AlienChaser) {
       otherObject.remove();
+      this.remove();
       return true;
     }
     // else if (otherObject instanceof Bullet) {

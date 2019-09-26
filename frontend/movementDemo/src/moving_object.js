@@ -20,8 +20,6 @@ class MovingObject {
     ctx.rect(this.x, this.y, this.width, this.height);
     ctx.fill();
   };
-  
-  //to repalce util.dist
   distanceX(otherObject) {
     if (otherObject.x < this.x){
       return this.x -otherObject.x;
@@ -29,7 +27,6 @@ class MovingObject {
       return otherObject.x - this.x;
     }
   }
-
   distanceY(otherObject) {
     if (otherObject.y < this.y){
       return this.y -otherObject.y;
@@ -37,7 +34,6 @@ class MovingObject {
       return otherObject.y - this.y;
     }
   }
-
   isCollidedWith(otherObject) {
     const centerDistX = this.distanceX(otherObject);
     const centerDistY = this.distanceY(otherObject);

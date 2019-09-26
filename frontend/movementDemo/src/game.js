@@ -80,13 +80,14 @@ class Game {
       for (let j = 0; j < allObjects.length; j++) {
         const obj1 = allObjects[i];
         const obj2 = allObjects[j];
-          // if (obj1.isCollidedWith(obj2)) {
-          //   const res=obj1.collideWith(obj2)
-            
-          // }
-        } 
+
+        if (obj1.isCollidedWith(obj2)) {
+          const collision = obj1.collideWith(obj2);
+          if (collision) return;
+        }
       }
     }
+  }
   
   moveObjects() {
     //maybe add delta arg
@@ -95,15 +96,13 @@ class Game {
     });
   }
   remove(object) {
-    // if (object instanceof Bullet) {
-    //   this.bullets.splice(this.bullets.indexOf(object), 1);
-    // } 
-    // else 
-    if (object instanceof AlienChaser) {
+    if (object instanceof Bullet) {
+      this.bullets.splice(this.bullets.indexOf(object), 1);
+    } else if (object instanceof AlienChaser) {
       this.alienChasers.splice(this.alienChasers.indexOf(object), 1);
     } else if (object instanceof Player) {
       this.players.splice(this.players.indexOf(object), 1);
-      // this.addPlayer();
+      this.addPlayer();
     } else {
       throw new Error("unknown type of object");
     }
@@ -119,6 +118,6 @@ Game.BG_COLOR = "lightgray";
 Game.DIM_X = 1000;
 Game.DIM_Y = 600;
 Game.FPS = 32;
-Game.NUM_ALIENCHASERS = 4;
+Game.NUM_ALIENCHASERS = 10;
 
 export default Game;

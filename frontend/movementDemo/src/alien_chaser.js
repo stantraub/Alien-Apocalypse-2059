@@ -1,12 +1,13 @@
 import MovingObject from "./moving_object";
 import Player from "./player";
+import Bullet from "./bullet";
 
 
 const DEFAULTS = {
   COLOR: "green",
   HEIGHT: 40,
   WIDTH: 15,
-  XVEL: 3,
+  XVEL: 1,
   YVEL: 3
 };
 class AlienChaser extends MovingObject {
@@ -25,15 +26,17 @@ class AlienChaser extends MovingObject {
     
   }
   collideWith(otherObject) {
-    if (otherObject instanceof Player && otherObject.y ) {
+    if (otherObject instanceof Player ) {
       otherObject.remove();
       return true;
-    } 
-    // else if (otherObject instanceof Bullet) {
-    //   this.remove();
-    //   otherObject.remove();
-    //   return true;
-    // }
+    } else if (otherObject instanceof Bullet) {
+      if (otherObject.x > this.x && this.x + 15 < otherObject.x  && this.y < 460 && this.y < 500 ) {
+        this.remove();
+        otherObject.remove();
+
+        return true;
+      }
+    }
 
     return false;
   }
