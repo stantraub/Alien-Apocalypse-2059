@@ -1,5 +1,6 @@
 import MovingObject from "./moving_object";
 import AlienChaser from "./alien_chaser";
+import Bullet from "./bullet";
 //sets controls
 //controls
 // const controls = {
@@ -52,6 +53,11 @@ class Player extends MovingObject {
       this.y = 600 - 100 - this.height;
       this.yVel = 0;
     }
+    //platform 
+    if (this.y > 400 - this.height && this.x > 400 & this.x < 500 && (this.y > 360) ) {
+      this.y = 400 - this.height;
+      this.yVel = 0;
+    }
 
     if (this.x < 5 + this.width) {
       this.xVel = 0;
@@ -61,6 +67,18 @@ class Player extends MovingObject {
     }
 
   };
+  fireBullet(vel) {
+
+
+    const bullet = new Bullet({
+      x: this.x,
+      y: this.y + 20,
+      xVel: vel,
+      color: this.color,
+      game: this.game
+    });
+    this.game.add(bullet);
+  }
 
   moveLeft(){
     console.log("left")
@@ -79,7 +97,7 @@ class Player extends MovingObject {
   }
   moveJump() { //add jumping logic like canJump, and the height restrictions 
     console.log(this.y)
-    this.yVel -= 30;
+    this.yVel -= 20;
   }
 
 }

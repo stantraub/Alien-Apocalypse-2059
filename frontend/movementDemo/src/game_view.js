@@ -15,16 +15,19 @@ class GameView {
   }
 
   bindKeyHandlers() {
-    const player = this.player;
+    
     console.log(this.player)
     // Object.keys(GameView.MOVES).forEach((k) => {
     //   const move = GameView.MOVES[k];
     //   key(k, () => { player.playerAction(move); });
     // });
-    key("a", () => {player.moveLeft(); });
-    key("d", () => { player.moveRight(); });
-    key("w", () => { player.moveJump(); });
-    // key("space", () => { player.fireBullet(); });
+    key("a", () => {this.player.moveLeft(); });
+    key("d", () => { this.player.moveRight(); });
+    key("w", () => { this.player.moveJump(); });
+
+    key(",", () => { this.player.fireBullet(-4); });
+    key(".", () => { this.player.fireBullet(4); });
+  
   }
 
   animate(time) {

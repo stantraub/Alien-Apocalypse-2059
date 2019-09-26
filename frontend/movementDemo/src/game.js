@@ -1,12 +1,13 @@
 import AlienChaser from "./alien_chaser";
 import Player from "./player";
+import Bullet from "./bullet";
 
 class Game {
   constructor(){
     this.alienChasers = [];
     this.bullets = [];
     this.players = [];
-    this.addAlienChasers()
+    this.addAlienChasers();
   
   }
   add(object) {
@@ -14,8 +15,9 @@ class Game {
       this.alienChasers.push(object);
     } else if (object instanceof Player) {
       this.players.push(object);
-    } 
-    else {
+    } else if (object instanceof Bullet) {
+      this.bullets.push(object);
+    } else {
       throw new Error("unknown type of object");
     }
   }
@@ -43,6 +45,19 @@ class Game {
     ctx.fillStyle = Game.BG_COLOR;
     ctx.fillRect(0, 0, Game.DIM_X, Game.DIM_Y);
     //floor
+    ctx.strokeStyle = "gray";
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.moveTo(0, 500);
+    ctx.lineTo(1000, 500);
+    ctx.stroke();
+    //platform
+    ctx.strokeStyle = "blue";
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.moveTo(400, 400);
+    ctx.lineTo(500, 400);
+    ctx.stroke();
 
 
 
@@ -65,10 +80,10 @@ class Game {
       for (let j = 0; j < allObjects.length; j++) {
         const obj1 = allObjects[i];
         const obj2 = allObjects[j];
-          if (obj1.isCollidedWith(obj2)) {
-            const res=obj1.collideWith(obj2)
+          // if (obj1.isCollidedWith(obj2)) {
+          //   const res=obj1.collideWith(obj2)
             
-          }
+          // }
         } 
       }
     }
@@ -88,7 +103,7 @@ class Game {
       this.alienChasers.splice(this.alienChasers.indexOf(object), 1);
     } else if (object instanceof Player) {
       this.players.splice(this.players.indexOf(object), 1);
-      this.addPlayer();
+      // this.addPlayer();
     } else {
       throw new Error("unknown type of object");
     }
@@ -100,10 +115,10 @@ class Game {
 
 
 }
-Game.BG_COLOR = "yellow";
+Game.BG_COLOR = "lightgray";
 Game.DIM_X = 1000;
 Game.DIM_Y = 600;
 Game.FPS = 32;
-Game.NUM_ALIENCHASERS = 0;
+Game.NUM_ALIENCHASERS = 4;
 
 export default Game;

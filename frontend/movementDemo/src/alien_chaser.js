@@ -39,7 +39,7 @@ class AlienChaser extends MovingObject {
   }
 
   move(){
-    if (this.game.players[0].x < this.x) {
+    if (this.game.players[0].x < this.x && this.game.players[0].x - this.x < 500) {
       this.xVel -= 0.2;
     } else if (this.game.players[0].x > this.x) {
       this.xVel += 0.2;
