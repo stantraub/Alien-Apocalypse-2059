@@ -23,7 +23,7 @@ import AlienChaser from "./alien_chaser";
 class Player extends MovingObject {
   constructor(options = {}) {
     options.color = "black";
-    options.height = 50;
+    options.height = 90;
     options.width = 20;
     options.x = options.x || options.game.randomX();
     options.y = options.y || options.game.randomY();
@@ -34,6 +34,59 @@ class Player extends MovingObject {
   }
 
 
+  collideWith(otherObject) {
+  //  if(otherObject instanceof AlienChaser){
+  //    return true
+  //  }
+  }
+  move() {
+
+    this.yVel += 1.5; //increase after testing
+    this.x += this.xVel;
+    this.y += this.yVel;
+    this.xVel *= .99; //readjust to .9 after testing
+    this.yVel *= .99;
+
+    if (this.y > 600 - 100 - this.height) {
+      this.canJump = false;
+      this.y = 600 - 100 - this.height;
+      this.yVel = 0;
+    }
+
+    if (this.x < 5 + this.width) {
+      this.xVel = 0;
+      //change for tesing since map wont always be the same shape
+    } else if (this.x > 995 - this.width) {
+      this.xVel = 0;
+    }
+
+  };
+
+  moveLeft(){
+    console.log("left")
+
+    // if (this.xVel > 0){
+    //   this.xVel = .9
+    // }
+    this.xVel -= 1;
+  }
+  moveRight() {
+    console.log("right")
+    // if (this.xVel < 0) {
+    //   this.xVel = -.1
+    // }
+    this.xVel += 1;
+  }
+  moveJump() { //add jumping logic like canJump, and the height restrictions 
+    this.yVel -= 30;
+  }
+
+}
+
+export default Player;
+
+
+
 
   // moveLeft(){
   //   // if (this.xVel > 0){
@@ -42,7 +95,7 @@ class Player extends MovingObject {
   //   while (this.xVel > -4) {
   //     this.xVel -= 1;
   //   }
-  
+
   // }
   // moveRight() {
   //   // if (this.xVel < 0) {
@@ -61,7 +114,7 @@ class Player extends MovingObject {
   //   } else {
   //     this.yVel -= 20;
   //   }
-    
+
   // }
   // move() {
 
@@ -99,29 +152,3 @@ class Player extends MovingObject {
 
   //   }
   // }
-
-  collideWith(otherObject) {
-  //  if(otherObject instanceof AlienChaser){
-  //    return true
-  //  }
-  }
-
-  moveLeft(){
-    if (this.xVel > 0){
-      this.xVel = .9
-    }
-    this.xVel -= 1;
-  }
-  moveRight() {
-    if (this.xVel < 0) {
-      this.xVel = -.1
-    }
-    this.xVel += 1;
-  }
-  moveJump() { //add jumping logic like canJump, and the height restrictions 
-    this.yVel -= 30;
-  }
-
-}
-
-export default Player;

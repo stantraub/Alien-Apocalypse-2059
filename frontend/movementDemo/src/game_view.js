@@ -16,7 +16,7 @@ class GameView {
 
   bindKeyHandlers() {
     const player = this.player;
-
+    console.log(this.player)
     // Object.keys(GameView.MOVES).forEach((k) => {
     //   const move = GameView.MOVES[k];
     //   key(k, () => { player.playerAction(move); });

@@ -23,11 +23,13 @@ class Game {
   addAlienChasers() {
     for (let i = 0; i < Game.NUM_ALIENCHASERS; i++) {
       this.add(new AlienChaser({ game: this }));
-     
+      //height: 10, width: 20, canJump: true, x: Math.random(599), y: Math.random(599), color: "red", xVel: 2, yVel: 0
     }
   }
   addPlayer() {
     const player = new Player({
+      // x: 100,
+      // y: 800,
       game: this
     });
     this.add(player);
@@ -60,14 +62,14 @@ class Game {
       for (let j = 0; j < allObjects.length; j++) {
         const obj1 = allObjects[i];
         const obj2 = allObjects[j];
-          if (obj1.isCollidedWith(obj2)) {
-            const res=obj1.collideWith(obj2)
-            
-          }
-        } 
+
+        if (obj1.isCollidedWith(obj2)) {
+          const collision = obj1.collideWith(obj2);
+          if (collision) return;
+        }
       }
     }
-  
+  }
   moveObjects() {
     //maybe add delta arg
     this.allObjects().forEach((object) => {
@@ -75,22 +77,19 @@ class Game {
     });
   }
   remove(object) {
-    // if (object instanceof Bullet) {
-    //   this.bullets.splice(this.bullets.indexOf(object), 1);
-    // } 
-    // else 
-    if (object instanceof AlienChaser) {
+    if (object instanceof Bullet) {
+      this.bullets.splice(this.bullets.indexOf(object), 1);
+    } else if (object instanceof AlienChaser) {
       this.alienChasers.splice(this.alienChasers.indexOf(object), 1);
     } else if (object instanceof Player) {
       this.players.splice(this.players.indexOf(object), 1);
-      this.addPlayer();
     } else {
       throw new Error("unknown type of object");
     }
   }
   step(delta) {
     this.moveObjects(delta);
-    this.checkCollisions();
+    // this.checkCollisions();
   }
 
 
@@ -99,6 +98,6 @@ Game.BG_COLOR = "yellow";
 Game.DIM_X = 1000;
 Game.DIM_Y = 600;
 Game.FPS = 32;
-Game.NUM_ALIENCHASERS = 1;
+Game.NUM_ALIENCHASERS = 0;
 
 export default Game;
