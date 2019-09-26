@@ -28,11 +28,12 @@ class AlienChaser extends MovingObject {
     if (otherObject instanceof Player) {
       otherObject.remove();
       return true;
-    } else if (otherObject instanceof Bullet) {
-      this.remove();
-      otherObject.remove();
-      return true;
-    }
+    } 
+    // else if (otherObject instanceof Bullet) {
+    //   this.remove();
+    //   otherObject.remove();
+    //   return true;
+    // }
 
     return false;
   }

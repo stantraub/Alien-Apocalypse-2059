@@ -20,10 +20,7 @@ class MovingObject {
     ctx.rect(this.x, this.y, this.width, this.height);
     ctx.fill();
   };
-  collideWith(otherObject) {
-    // default do nothing
-  }
-
+  
   //to repalce util.dist
   distance(otherObject) {
     if (otherObject.x < this.x){
@@ -35,8 +32,12 @@ class MovingObject {
 
   isCollidedWith(otherObject) {
     const centerDist = this.distance(otherObject);
-    return centerDist < ((this.width / 2) + (otherObject.width / 2));
+   return(centerDist< ((this.width / 2) + (otherObject.width / 2)));
   }
+
+  remove() {
+    this.game.remove(this);
+  };
 
   move() {
     //GENERAL MOVEMENT CONSTRAINTS

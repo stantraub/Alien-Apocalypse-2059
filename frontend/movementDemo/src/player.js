@@ -1,4 +1,5 @@
 import MovingObject from "./moving_object";
+import AlienChaser from "./alien_chaser";
 //sets controls
 //controls
 // const controls = {
@@ -31,56 +32,59 @@ class Player extends MovingObject {
     options.yVel = 0;
     super(options)
   }
-  moveLeft(){
-    // if (this.xVel > 0){
-    //   this.xVel = .9
-    // }
-    while (this.xVel > -4) {
-      this.xVel -= 1;
-    }
+
+
+
+  // moveLeft(){
+  //   // if (this.xVel > 0){
+  //   //   this.xVel = .9
+  //   // }
+  //   while (this.xVel > -4) {
+  //     this.xVel -= 1;
+  //   }
   
-  }
-  moveRight() {
-    // if (this.xVel < 0) {
-    //   this.xVel = -.1
-    // }
-    while (this.xVel < 4) {
-      this.xVel += 1;
-    }
-  }
-  moveJump() { //add jumping logic like canJump, and the height restrictions 
-    if (this.y > 600 - 100 - this.height) {
-      // this.canJump = false;
-      // this.y = 600 - 100 - this.height;
-      // this.yVel = 1.5
-      this.y = this.y
-    } else {
-      this.yVel -= 20;
-    }
+  // }
+  // moveRight() {
+  //   // if (this.xVel < 0) {
+  //   //   this.xVel = -.1
+  //   // }
+  //   while (this.xVel < 4) {
+  //     this.xVel += 1;
+  //   }
+  // }
+  // moveJump() { //add jumping logic like canJump, and the height restrictions 
+  //   if (this.y > 600 - 100 - this.height) {
+  //     // this.canJump = false;
+  //     // this.y = 600 - 100 - this.height;
+  //     // this.yVel = 1.5
+  //     this.y = this.y
+  //   } else {
+  //     this.yVel -= 20;
+  //   }
     
-  }
-  move() {
+  // }
+  // move() {
 
-    this.yVel += 1.5; //increase after testing
-    this.x += this.xVel;
-    this.y += this.yVel;
-    this.xVel *= .99; //readjust to .9 after testing
-    this.yVel *= .99;
+  //   this.yVel += 1.5; //increase after testing
+  //   this.x += this.xVel;
+  //   this.y += this.yVel;
+  //   this.xVel *= .99; //readjust to .9 after testing
+  //   this.yVel *= .99;
 
-    if (this.y > 600 - 100 - this.height) {
-      this.canJump = false;
-      this.y = 600 - 100 - this.height;
-      this.yVel = 0;
-    }
+  //   if (this.y > 600 - 100 - this.height) {
+  //     this.canJump = false;
+  //     this.y = 600 - 100 - this.height;
+  //     this.yVel = 0;
+  //   }
 
-    if (this.x < 5 + this.width) {
-      this.xVel = 0;
-      //change for tesing since map wont always be the same shape
-    } else if (this.x > 995 - this.width) {
-      this.xVel = 0;
-    }
+  //   if (this.x < 5 + this.width) {
+  //     this.xVel = 0;
+  //     //change for tesing since map wont always be the same shape
+  //   } else if (this.x > 995 - this.width) {
+  //     this.xVel = 0;
+  //   }
 
-  };
+  // };
   // playerAction(num){
   //   switch (num) {
   //     case -1:
@@ -96,7 +100,27 @@ class Player extends MovingObject {
   //   }
   // }
 
-  
+  collideWith(otherObject) {
+  //  if(otherObject instanceof AlienChaser){
+  //    return true
+  //  }
+  }
+
+  moveLeft(){
+    if (this.xVel > 0){
+      this.xVel = .9
+    }
+    this.xVel -= 1;
+  }
+  moveRight() {
+    if (this.xVel < 0) {
+      this.xVel = -.1
+    }
+    this.xVel += 1;
+  }
+  moveJump() { //add jumping logic like canJump, and the height restrictions 
+    this.yVel -= 30;
+  }
 
 }
 

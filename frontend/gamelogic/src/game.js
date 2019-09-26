@@ -89,7 +89,7 @@ class Game {
   }
   step(delta) {
     this.moveObjects(delta);
-    // this.checkCollisions();
+    this.checkCollisions();
   }
 
 

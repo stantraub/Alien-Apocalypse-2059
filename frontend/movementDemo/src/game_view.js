@@ -4,8 +4,6 @@ class GameView {
     this.ctx = ctx;
     this.game = game;
     this.player = this.game.addPlayer()
-
-
   }
 
   start() {
@@ -19,16 +17,13 @@ class GameView {
   bindKeyHandlers() {
     const player = this.player;
 
-    Object.keys(GameView.MOVES).forEach((k) => {
-      const move = GameView.MOVES[k];
-      key(k, () => { player.playerAction(move); });
-    });
+    // Object.keys(GameView.MOVES).forEach((k) => {
+    //   const move = GameView.MOVES[k];
+    //   key(k, () => { player.playerAction(move); });
+    // });
     key("a", () => {player.moveLeft(); });
     key("d", () => { player.moveRight(); });
     key("w", () => { player.moveJump(); });
-
-
-
     // key("space", () => { player.fireBullet(); });
   }
 
@@ -43,10 +38,6 @@ class GameView {
     requestAnimationFrame(this.animate.bind(this));
   }
 }
-// GameView.MOVES = {
-//   w: 2,
-//   a: -1,
-//   d: 1,
-// };
+
 
 export default GameView;
