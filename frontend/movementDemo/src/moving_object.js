@@ -22,7 +22,7 @@ class MovingObject {
   };
   
   //to repalce util.dist
-  distance(otherObject) {
+  distanceX(otherObject) {
     if (otherObject.x < this.x){
       return this.x -otherObject.x;
     }else{
@@ -30,9 +30,18 @@ class MovingObject {
     }
   }
 
+  distanceY(otherObject) {
+    if (otherObject.y < this.y){
+      return this.y -otherObject.y;
+    }else{
+      return otherObject.y - this.y;
+    }
+  }
+
   isCollidedWith(otherObject) {
-    const centerDist = this.distance(otherObject);
-   return(centerDist< ((this.width / 2) + (otherObject.width / 2)));
+    const centerDistX = this.distanceX(otherObject);
+    const centerDistY = this.distanceY(otherObject);
+   return(centerDistX< ((this.width / 2) + (otherObject.width / 2)) && centerDistY< ((this.height / 2) + (otherObject.height / 2)) );
   }
 
   remove() {
