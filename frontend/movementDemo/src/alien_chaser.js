@@ -25,7 +25,7 @@ class AlienChaser extends MovingObject {
     
   }
   collideWith(otherObject) {
-    if (otherObject instanceof Player) {
+    if (otherObject instanceof Player && otherObject.y ) {
       otherObject.remove();
       return true;
     } 

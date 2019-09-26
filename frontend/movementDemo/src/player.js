@@ -23,7 +23,7 @@ import AlienChaser from "./alien_chaser";
 class Player extends MovingObject {
   constructor(options = {}) {
     options.color = "black";
-    options.height = 90;
+    options.height = 40;
     options.width = 20;
     options.x = options.x || options.game.randomX();
     options.y = options.y || options.game.randomY();
@@ -78,6 +78,7 @@ class Player extends MovingObject {
     this.xVel += 1;
   }
   moveJump() { //add jumping logic like canJump, and the height restrictions 
+    console.log(this.y)
     this.yVel -= 30;
   }
 
