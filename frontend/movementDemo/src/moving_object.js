@@ -11,6 +11,7 @@ class MovingObject {
     this.xVel = options.xVel;
     this.yVel = options.yVel;
     this.game = options.game
+    this.health = options.health
 
   }
 
@@ -50,8 +51,8 @@ class MovingObject {
     this.yVel += 2; //increase after testing
     this.x += this.xVel;
     this.y += this.yVel;
-    this.xVel *= .97; //readjust to .9 after testing
-    this.yVel *= .97;
+    this.xVel *= .8; //readjust to .9 after testing
+    this.yVel *= .8;
     //floor
     if (this.y > 600 - 100 - this.height) {
       this.canJump = false;

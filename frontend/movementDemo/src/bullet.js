@@ -1,5 +1,6 @@
 import MovingObject from "./moving_object";
 import AlienChaser from "./alien_chaser";
+import { userInfo } from "os";
 
 
 
@@ -12,6 +13,7 @@ class Bullet extends MovingObject {
     options.y = options.y;
     options.xVel = options.xVel;
     options.yVel = 0;
+    options.game = options.game
     
     super(options);
   }
@@ -23,8 +25,13 @@ class Bullet extends MovingObject {
   }
   collideWith(otherObject) {
     if (otherObject instanceof AlienChaser) {
-      otherObject.remove();
+      otherObject.health -= 1
       this.remove();
+      if (otherObject.health <= 0){
+        this.game.players[0].score += 1;
+        otherObject.remove();
+      }
+ 
       return true;
     }
     // else if (otherObject instanceof Bullet) {

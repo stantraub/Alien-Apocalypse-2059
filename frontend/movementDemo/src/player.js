@@ -31,7 +31,9 @@ class Player extends MovingObject {
     options.canJump = options.canJump || true;
     options.xVel = 0;
     options.yVel = 0;
-    super(options)
+    options.health = 5;
+    super(options);
+    this.score = 0;
   }
 
 
@@ -41,6 +43,9 @@ class Player extends MovingObject {
   //  }
   }
   move() {
+    if(this.health === 0){
+      // this.remove();
+    }
 
     this.yVel += 1.5; //increase after testing
     this.x += this.xVel;
@@ -68,7 +73,9 @@ class Player extends MovingObject {
 
   };
   fireBullet(vel) {
-
+    if (this.xVel < 0){
+      vel = -vel;
+    }
 
     const bullet = new Bullet({
       x: this.x,
@@ -86,14 +93,14 @@ class Player extends MovingObject {
     // if (this.xVel > 0){
     //   this.xVel = .9
     // }
-    this.xVel -= 1;
+    this.xVel -= 2;
   }
   moveRight() {
     console.log("right")
     // if (this.xVel < 0) {
     //   this.xVel = -.1
     // }
-    this.xVel += 1;
+    this.xVel += 2 
   }
   moveJump() { //add jumping logic like canJump, and the height restrictions 
     console.log(this.y)

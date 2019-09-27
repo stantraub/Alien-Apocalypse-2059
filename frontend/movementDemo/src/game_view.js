@@ -25,8 +25,8 @@ class GameView {
     key("d", () => { this.player.moveRight(); });
     key("w", () => { this.player.moveJump(); });
 
-    key(",", () => { this.player.fireBullet(-4); });
-    key(".", () => { this.player.fireBullet(4); });
+    key(",", () => { this.player.fireBullet(4); });
+    // key(".", () => { this.player.fireBullet(4); });
   
   }
 

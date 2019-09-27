@@ -5,6 +5,7 @@ import Bullet from "./bullet";
 class Game {
   constructor(){
     this.alienChasers = [];
+    this.rangeAliens = []
     this.bullets = [];
     this.players = [];
     this.addAlienChasers();
@@ -21,11 +22,17 @@ class Game {
       throw new Error("unknown type of object");
     }
   }
+  random_item(items) {
+    return items[Math.floor(Math.random() * items.length)];
+  }
 
   addAlienChasers() {
-    for (let i = 0; i < Game.NUM_ALIENCHASERS; i++) {
-      this.add(new AlienChaser({ game: this }));
-     
+    if (this.alienChasers.length === 0){
+      for (let i = 0; i < Game.NUM_ALIENCHASERS; i++) {
+
+        this.add(new AlienChaser({ game: this, x: this.random_item([950, 50]) }));
+      
+      }
     }
   }
   addPlayer() {
@@ -58,13 +65,36 @@ class Game {
     ctx.moveTo(400, 400);
     ctx.lineTo(500, 400);
     ctx.stroke();
+    //health 
+ 
+    ///score
+    ctx.font = "30px Comic Sans MS";
+    ctx.fillStyle = "red";
+    ctx.textAlign = "center";
+    ctx.fillText(`Score: ${this.players[0].score}`, 920, 50);
 
-
-
-
+    ctx.font = "30px Comic Sans MS";
+    ctx.fillStyle = "red";
+    ctx.textAlign = "center";
+    ctx.fillText(`Health: ${this.players[0].health}`, 80, 50);
     this.allObjects().forEach((object) => {
       object.draw(ctx);
     });
+
+    if (this.players[0].health <= 0){
+      ctx.clearRect(0, 0, Game.DIM_X, Game.DIM_Y);
+      ctx.fillStyle = "black";
+      ctx.fillRect(0, 0, Game.DIM_X, Game.DIM_Y);
+      ctx.fillStyle = "red";
+      ctx.textAlign = "center";
+      ctx.fillText(`Game Over`, 500, 300);
+      ctx.fillStyle = "red";
+      ctx.textAlign = "center";
+      ctx.fillText(`Score: ${this.players[0].score}`, 500, 330);
+      this.alienChasers.forEach(alien => {
+        alien.remove();
+      });
+    }
   }
 
   randomX() {
@@ -102,7 +132,7 @@ class Game {
       this.alienChasers.splice(this.alienChasers.indexOf(object), 1);
     } else if (object instanceof Player) {
       this.players.splice(this.players.indexOf(object), 1);
-      this.addPlayer();
+      // this.addPlayer();
     } else {
       throw new Error("unknown type of object");
     }
@@ -110,6 +140,7 @@ class Game {
   step(delta) {
     this.moveObjects(delta);
     this.checkCollisions();
+    this.addAlienChasers();
   }
 
 
@@ -118,6 +149,6 @@ Game.BG_COLOR = "lightgray";
 Game.DIM_X = 1000;
 Game.DIM_Y = 600;
 Game.FPS = 32;
-Game.NUM_ALIENCHASERS = 10;
+Game.NUM_ALIENCHASERS = 5;
 
 export default Game;

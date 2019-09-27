@@ -21,17 +21,19 @@ class AlienChaser extends MovingObject {
     options.xVel = DEFAULTS.XVEL;
     options.yVel = DEFAULTS.YVEL;
     options.game = options.game;
+    options.health = 2;
     super(options)
     this.speed = [0.1, 0.15, 0.2, 0.5][Math.floor(Math.random() * 4)];
     
   }
   collideWith(otherObject) {
     if (otherObject instanceof Player ) {
-      otherObject.remove();
+      otherObject.health -= 1;
+      this.remove();
       return true;
     } else if (otherObject instanceof Bullet) {
       if (otherObject.x > this.x && this.x + 15 < otherObject.x  && this.y < 460 && this.y < 500 ) {
-        this.remove();
+        this.health -= 1;
         otherObject.remove();
 
         return true;
@@ -42,6 +44,7 @@ class AlienChaser extends MovingObject {
   }
 
   move(){
+    
     if (this.game.players[0].x < this.x && this.game.players[0].x - this.x < 500) {
       this.xVel -= 0.2;
     } else if (this.game.players[0].x > this.x) {
