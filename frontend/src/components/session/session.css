@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap");
+
+
+.session-modal {
+  background-color: white;
+  border-radius: 6px;
+  /* padding-top: 15px; */
+  padding-bottom: 5px;
+  padding: 20px;
+
+}
+
+.session-modal-input {
+  outline: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding-left: 20px;
+  padding-top: 15px;
+  padding-bottom: 5px;
+  font-size: 24px;
+  font-family: 'Press Start 2P';
+}
+
+.session-modal-submit {
+    color:white;
+    text-align: center;
+    margin-top: 30px;
+    display: inline-block;
+    width: 330px;
+    cursor: pointer;
+    border-radius: 6px;
+    background-color: #3897F0;
+    border: 1px solid #3897F0;
+    font-size: 22px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    transform: translateX(80px);
+    font-family: 'Press Start 2P';
+}

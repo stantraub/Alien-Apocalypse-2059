@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+// import Modal from '../modal/modal';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -17,10 +18,10 @@ class LoginForm extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser === true) {
-      this.props.history.push('/tweets');
+      this.props.history.push('/');
     }
 
-    this.setState({errors: nextProps.errors})
+    this.setState({ errors: nextProps.errors })
   }
 
   update(field) {
@@ -37,7 +38,7 @@ class LoginForm extends React.Component {
       password: this.state.password
     };
 
-    this.props.login(user); 
+    this.props.login(user).then(this.props.closeModal);
   }
 
   renderErrors() {
@@ -56,21 +57,29 @@ class LoginForm extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <div>
+          <div className="session-modal">
             <br/>
-              <input type="text"
+              <input 
+                className="session-modal-input"
+                type="text"
                 value={this.state.username}
                 onChange={this.update('username')}
-                placeholder="Username"
+                placeholder="Enter Username"
               />
             <br/>
-              <input type="password"
+              <input 
+                className="session-modal-input"
+                type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
-                placeholder="Password"
+                placeholder="Enter Password"
               />
             <br/>
-            <input type="submit" value="Submit" />
+              <input 
+                type="submit" 
+                value={this.props.formType}
+                className="session-modal-submit"
+              />
             {this.renderErrors()}
           </div>
         </form>
