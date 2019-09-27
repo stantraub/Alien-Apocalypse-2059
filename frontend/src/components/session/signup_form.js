@@ -17,7 +17,7 @@ class SignupForm extends React.Component {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.signedIn === true) {
-            this.props.history.push('/login');
+            this.props.history.push('/');
         }
 
         this.setState({ errors: nextProps.errors })
@@ -37,7 +37,7 @@ class SignupForm extends React.Component {
             password2: this.state.password2
         };
 
-        this.props.signup(user, this.props.history);
+        this.props.signup(user, this.props.history).then(this.props.closeModal);
     }
 
     renderErrors() {
@@ -54,29 +54,35 @@ class SignupForm extends React.Component {
 
     render() {
         return (
-            <div className="login-form-container">
+            <div className="session-modal">
                 <form onSubmit={this.handleSubmit}>
                     <div className="login-form">
                         <br />
-                        <input type="text"
+                        <input 
+                            className="session-modal-input"
+                            type="text"
                             value={this.state.username}
                             onChange={this.update('username')}
-                            placeholder="Username"
+                            placeholder="Enter Username"
                         />
                         <br />
-                        <input type="password"
+                        <input
+                            className="session-modal-input"
+                            type="password"
                             value={this.state.password}
                             onChange={this.update('password')}
-                            placeholder="Password"
+                            placeholder="Enter Password"
                         />
                         <br />
-                        <input type="password"
+                        <input 
+                            className="session-modal-input"
+                            type="password"
                             value={this.state.password2}
                             onChange={this.update('password2')}
                             placeholder="Confirm Password"
                         />
                         <br />
-                        <input type="submit" value="Submit" />
+                        <input type="submit" value={this.props.formType} className="session-modal-submit" />
                         {this.renderErrors()}
                     </div>
                 </form>
