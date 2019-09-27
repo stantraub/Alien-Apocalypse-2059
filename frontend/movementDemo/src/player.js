@@ -1,6 +1,9 @@
 import MovingObject from "./moving_object";
 import AlienChaser from "./alien_chaser";
 import Bullet from "./bullet";
+import Game from "./game";
+
+
 //sets controls
 //controls
 // const controls = {
@@ -50,8 +53,8 @@ class Player extends MovingObject {
     this.yVel += 1.5; //increase after testing
     this.x += this.xVel;
     this.y += this.yVel;
-    this.xVel *= .99; //readjust to .9 after testing
-    this.yVel *= .99;
+    // this.xVel *= .92; //readjust to .9 after testing
+    // this.yVel *= .92;
 
     if (this.y > 600 - 100 - this.height) {
       this.canJump = false;
@@ -59,10 +62,10 @@ class Player extends MovingObject {
       this.yVel = 0;
     }
     //platform 
-    if (this.y > 400 - this.height && this.x > 400 & this.x < 500 && (this.y > 360) ) {
-      this.y = 400 - this.height;
-      this.yVel = 0;
-    }
+    // if (this.y > 400 - this.height && this.x > 400 & this.x < 500 && (this.y > 360) ) {
+    //   this.y = 400 - this.height;
+    //   this.yVel = 0;
+    // }
 
     if (this.x < 5 + this.width) {
       this.xVel = 0;
@@ -72,7 +75,11 @@ class Player extends MovingObject {
     }
 
   };
+  // bulletDist(){
+  //   if (this.game.bullets[])
+  // }
   fireBullet(vel) {
+    // debugger
     if (this.xVel < 0){
       vel = -vel;
     }
@@ -84,27 +91,28 @@ class Player extends MovingObject {
       color: this.color,
       game: this.game
     });
+    
     this.game.add(bullet);
   }
 
   moveLeft(){
-    console.log("left")
+    // this.movePlayer();
 
     // if (this.xVel > 0){
     //   this.xVel = .9
     // }
-    this.xVel -= 2;
+    this.xVel -= 1.5;
   }
   moveRight() {
-    console.log("right")
+    // this.movePlayer();
     // if (this.xVel < 0) {
     //   this.xVel = -.1
     // }
-    this.xVel += 2 
+    this.xVel += 1.5; 
   }
   moveJump() { //add jumping logic like canJump, and the height restrictions 
-    console.log(this.y)
-    this.yVel -= 20;
+    // this.movePlayer();
+    this.yVel -=20;
   }
 
 }

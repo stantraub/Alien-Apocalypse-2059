@@ -4,6 +4,25 @@ class GameView {
     this.ctx = ctx;
     this.game = game;
     this.player = this.game.addPlayer()
+    this.controls = {
+    left: false, right: false, up: false, keyListener:function(action) {
+      const keyStatus = (action.type == "keydown") ? true : false;
+      //sets the current keydown action
+      switch (action.keyCode) {
+        case 65:// A Left
+          controls.left = keyStatus
+          break;
+        case 87://W Up
+          controls.up = keyStatus
+          break;
+        case 68://D Right
+          controls.right = keyStatus
+        // case 32: //SPACE SHOOT
+        //   controls.shoot = keyStatus
+      }
+    }
+  };
+
   }
 
   start() {
@@ -13,7 +32,7 @@ class GameView {
     // start the animation
     requestAnimationFrame(this.animate.bind(this));
   }
-
+  
   bindKeyHandlers() {
     
     console.log(this.player)
@@ -21,12 +40,12 @@ class GameView {
     //   const move = GameView.MOVES[k];
     //   key(k, () => { player.playerAction(move); });
     // });
-    key("a", () => {this.player.moveLeft(); });
+    key(("a"), () => {this.player.moveLeft(); });
     key("d", () => { this.player.moveRight(); });
     key("w", () => { this.player.moveJump(); });
 
-    key(",", () => { this.player.fireBullet(4); });
-    // key(".", () => { this.player.fireBullet(4); });
+
+    key("space", () => { this.player.fireBullet(8); setTimeout(3000); });
   
   }
 

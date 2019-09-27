@@ -49,8 +49,8 @@ class MovingObject {
     //GENERAL MOVEMENT CONSTRAINTS
     //gravity and friction 
     this.yVel += 2; //increase after testing
-    this.x += this.xVel;
-    this.y += this.yVel;
+    this.x += 2//this.xVel;
+    this.y += 2//this.yVel;
     this.xVel *= .8; //readjust to .9 after testing
     this.yVel *= .8;
     //floor

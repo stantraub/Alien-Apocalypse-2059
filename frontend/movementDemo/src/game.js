@@ -59,12 +59,12 @@ class Game {
     ctx.lineTo(1000, 500);
     ctx.stroke();
     //platform
-    ctx.strokeStyle = "blue";
-    ctx.lineWidth = 4;
-    ctx.beginPath();
-    ctx.moveTo(400, 400);
-    ctx.lineTo(500, 400);
-    ctx.stroke();
+    // ctx.strokeStyle = "blue";
+    // ctx.lineWidth = 4;
+    // ctx.beginPath();
+    // ctx.moveTo(400, 400);
+    // ctx.lineTo(500, 400);
+    // ctx.stroke();
     //health 
  
     ///score
@@ -149,6 +149,6 @@ Game.BG_COLOR = "lightgray";
 Game.DIM_X = 1000;
 Game.DIM_Y = 600;
 Game.FPS = 32;
-Game.NUM_ALIENCHASERS = 5;
+Game.NUM_ALIENCHASERS = 1;
 
 export default Game;
