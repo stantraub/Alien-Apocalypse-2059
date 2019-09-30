@@ -79,7 +79,7 @@ class Player extends MovingObject {
   //   if (this.game.bullets[])
   // }
   fireBullet(vel) {
-    // debugger
+  
     if (this.xVel < 0){
       vel = -vel;
     }

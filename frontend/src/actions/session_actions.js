@@ -34,7 +34,7 @@ export const signup = user => dispatch => (
 
 export const login = user => dispatch => {
     console.log(user);
-    debugger;
+   
     return(
         APIUtil.login(user).then(res => {
             console.log('success')
