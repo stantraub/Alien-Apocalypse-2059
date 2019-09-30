@@ -48,7 +48,7 @@ router.post('/register', (req, res) => {
 
 router.post('/login', (req, res) => {
     const { errors, isValid } = validateLoginInput(req.body);
-    debugger;
+ 
     console.log('hit the router');
     console.log(errors);
 
