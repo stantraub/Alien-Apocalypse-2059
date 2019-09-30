@@ -8,12 +8,8 @@
     "server": "nodemon app.js",
     "dev": "concurrently \"npm run server\" \"npm run frontend\"",
     "frontend-install": "npm install --prefix frontend",
-<<<<<<< HEAD
     "frontend": "npm start --prefix frontend",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
-=======
-    "frontend": "npm start --prefix frontend"
->>>>>>> 63b40ccb6c0e0fa3d0520add93ecd4a558c1d1e8
   },
   "author": "",
   "license": "ISC",
@@ -26,9 +22,16 @@
     "mongoose": "^5.7.1",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
-    "validator": "^11.1.0"
+    "validator": "^11.1.0",
+
   },
   "devDependencies": {
     "nodemon": "^1.19.2"
+  },
+  "engines": {
+    "node": "12.9.1",
+    "npm": "6.10.2"
   }
+
+
 }
