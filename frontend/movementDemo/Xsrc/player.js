@@ -75,9 +75,7 @@ class Player extends MovingObject {
     }
 
   };
-  // bulletDist(){
-  //   if (this.game.bullets[])
-  // }
+
   fireBullet(vel) {
     // debugger
     if (this.xVel < 0){
@@ -91,8 +89,9 @@ class Player extends MovingObject {
       color: this.color,
       game: this.game
     });
+    setTimeout(this.game.add(bullet), 3000);
+    // this.game.add(bullet);
     
-    this.game.add(bullet);
   }
 
   moveLeft(){

@@ -4,7 +4,16 @@ import '../../css/reset.css';
 
 
 class Splash extends React.Component {
+    constructor(props){
+        super(props);
+        
+        this.state=props.user;
+        debugger
+    }
+
+
     render() {
+        
         return(
             <div className="main-div">
                 <img className="background" src="https://i.pinimg.com/originals/ef/a9/39/efa9396fe51653bc074f75d2252692d0.gif"/>
@@ -13,6 +22,7 @@ class Splash extends React.Component {
                     Alien Apocalypse: 2059
                     </div>
                 </div>
+                
                 <div className="login-signup-form">
                     <button onClick={() => this.props.openModal('login')} className="session-button">
                 
@@ -26,6 +36,7 @@ class Splash extends React.Component {
                 
                     </button>
                 </div>
+
             </div>
         )
     }
