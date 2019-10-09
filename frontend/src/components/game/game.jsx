@@ -15,13 +15,24 @@ class Game extends React.Component {
 
 
 render(){
-    
-    return(
+    let game;
+    if(this.props.user){
+        game =
         <div>
             <h1>Success</h1>
             <button onClick={this.handleOnClick}>Logout</button>
+            <canvas id="game-canvas" style={{height: 600, width: 1000, backgroundColor: 'gray',}}></canvas>
+            <script type="application/javascript" src="../vendor/keymaster.js"></script>
+            <script src="./main.js" type="application/javascript"></script>
+        
         </div>
+    }
+    return (
+       <div>
+           {game}
+       </div>
     )
+
 }
 
 }
