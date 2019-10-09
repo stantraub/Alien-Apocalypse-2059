@@ -5,6 +5,7 @@ import {logout} from '../../actions/session_actions';
 import Game from './game';
 
 const mapStateToProps = (state) => {
+    
     return {
        user: state.session.user
     };
