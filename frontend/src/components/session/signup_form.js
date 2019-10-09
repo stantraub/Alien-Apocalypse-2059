@@ -8,6 +8,7 @@ class SignupForm extends React.Component {
             username: '',
             password: '',
             password2: '',
+            highscore: 0,
             errors: {}
         };
 
@@ -34,7 +35,8 @@ class SignupForm extends React.Component {
         let user = {
             username: this.state.username,
             password: this.state.password,
-            password2: this.state.password2
+            password2: this.state.password2,
+            highscore: this.state.highscore
         };
 
         this.props.signup(user, this.props.history).then(this.props.history.push('/game')).then(this.props.closeModal);

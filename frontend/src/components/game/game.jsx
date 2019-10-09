@@ -15,9 +15,10 @@ class Game extends React.Component {
 
 
 render(){
+    
     return(
         <div>
-            <h1>Sucess</h1>
+            <h1>Success</h1>
             <button onClick={this.handleOnClick}>Logout</button>
         </div>
     )
