@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {login} from '../../actions/session_actions'
 import { openModal } from '../../actions/modal_actions';
-import {login} from '../../actions/session_actions';
+// import {login} from '../../actions/session_actions';
 import Splash from './splash';
 
 const mapStateToProps = (state) => {
