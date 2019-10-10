@@ -6,16 +6,17 @@ import { userInfo } from "os";
 
 class Bullet extends MovingObject {
   constructor(options) {
-    options.height = Bullet.RADIUS;
-    options.width = Bullet.RADIUS;
-    options.color = "red";
-    options.x = options.x;
-    options.y = options.y;
-    options.xVel = options.xVel;
-    options.yVel = 0;
-    options.game = options.game
-    
     super(options);
+    this.height = Bullet.RADIUS;
+    this.width = Bullet.RADIUS;
+    this.color = "red";
+    this.x = options.x;
+    this.y = options.y;
+    this.xVel = options.xVel;
+    this.yVel = 0;
+    this.game = options.game
+    
+    
   }
   move() {
     this.x += this.xVel
