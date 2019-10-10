@@ -1,7 +1,6 @@
 import MovingObject from "./moving_object";
 import AlienChaser from "./alien_chaser";
 import Bullet from "./bullet";
-import Game from "./game";
 
 
 //sets controls

@@ -1,7 +1,8 @@
 import React from 'react';
 import './game_container';
-import GameFile from "./game";
+import GameFile from "./gamefile";
 import GameView from "./game_view";
+
 class Game extends React.Component {
     constructor(props){
         super(props)
