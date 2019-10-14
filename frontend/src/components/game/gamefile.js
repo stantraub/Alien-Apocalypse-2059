@@ -48,9 +48,15 @@ class GameFile {
 
   draw(ctx) {
     //background
-    ctx.clearRect(0, 0, GameFile.DIM_X, GameFile.DIM_Y);
-    ctx.fillStyle = GameFile.BG_COLOR;
-    ctx.fillRect(0, 0, GameFile.DIM_X, GameFile.DIM_Y);
+    let background = new Image();
+    background.src = "https://ze-robot.com/dl/mi/minimalist-cities-by-romain-trystram-zip-in-comments-14-2560%C3%971080.jpg";
+    background.onload = function () {
+      ctx.drawImage(background, 0, 0);
+    }
+    
+  //  ctx.clearRect(0, 0, GameFile.DIM_X, GameFile.DIM_Y);
+    // ctx.fillStyle = GameFile.BG_COLOR;
+    // ctx.fillRect(0, 0, GameFile.DIM_X, GameFile.DIM_Y);
     //floor
     ctx.strokeStyle = "gray";
     ctx.lineWidth = 4;
