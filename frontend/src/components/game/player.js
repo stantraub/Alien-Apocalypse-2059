@@ -74,6 +74,17 @@ class Player extends MovingObject {
     }
 
   };
+
+  draw(ctx) {
+    // ctx.fillStyle = this.color;
+    // ctx.beginPath();
+    // ctx.fillStyle = "blue";
+    // ctx.rect(this.x, this.y, this.width, this.height);
+    // ctx.fill();
+    let player = new Image();
+    player.src = "sprite_base_addon_2012_12_14.png";
+    ctx.drawImage(player, 150, 150, 50, 50, this.x, this.y-40, 130, 130);
+  };
   // bulletDist(){
   //   if (this.game.bullets[])
   // }

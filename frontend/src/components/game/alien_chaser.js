@@ -43,6 +43,17 @@ class AlienChaser extends MovingObject {
     return false;
   }
 
+  draw(ctx) {
+    // ctx.fillStyle = this.color;ala
+    // ctx.beginPath();
+    // ctx.fillStyle = "blue";
+    // ctx.rect(this.x, this.y, this.width, this.height);
+    // ctx.fill();
+    let player = new Image();
+    player.src = "alien.gif";
+    ctx.drawImage(player, 0, 0, 110, 110, this.x, this.y-80, 150, 150);
+  };
+
   move(){
     
     if (this.game.players[0].x < this.x && this.game.players[0].x - this.x < 500) {

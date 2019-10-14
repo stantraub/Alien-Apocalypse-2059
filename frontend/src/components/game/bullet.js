@@ -24,6 +24,17 @@ class Bullet extends MovingObject {
       this.remove();
     }
   }
+
+  draw(ctx) {
+    // ctx.fillStyle = this.color;
+    // ctx.beginPath();
+    // ctx.fillStyle = "blue";
+    // ctx.rect(this.x, this.y, this.width, this.height);
+    // ctx.fill();
+    let player = new Image();
+    player.src = "energy_effect_base.png";
+    ctx.drawImage(player, 0, 100, 30, 25, this.x, this.y, 50, 50);
+  };
   collideWith(otherObject) {
     if (otherObject instanceof AlienChaser) {
       otherObject.health -= 1
