@@ -32,11 +32,13 @@ class Game extends React.Component {
         if(this.props.user){
             game =
             <div>
-                <h1>Success</h1>
-                <button onClick={this.handleOnClick}>Logout</button>
-                <canvas id="game-canvas" style={{height: 600, width: 1000, backgroundColor: 'gray',}}></canvas>
-                {/* <script type="application/javascript" src="../vendor/keymaster.js"></script> */}
-                {/* <script src="./index.js" type="application/javascript"></script> */}
+                <div className="game-div">
+                    <button onClick={this.handleOnClick}>Logout</button>
+                    <canvas id="game-canvas" style={{ height: 700, width: 1600, backgroundColor: 'gray' }}></canvas>
+                    {/* <script type="application/javascript" src="../vendor/keymaster.js"></script> */}
+                    {/* <script src="./index.js" type="application/javascript"></script> */} 
+                </div>
+           
             
             </div>
         }

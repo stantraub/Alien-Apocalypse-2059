@@ -36,6 +36,7 @@ class Player extends MovingObject {
     options.health = 5;
     super(options);
     this.score = 0;
+    this.mirror = false;
   }
 
 
@@ -75,15 +76,41 @@ class Player extends MovingObject {
 
   };
 
-  draw(ctx) {
+  // addSpriteFlipped(sprite, offsetX, offsetY) {
+  //   //add sprite flipped horizontally
+
+
+  //   const ctx = clip.getContext('2d');
+  //   ctx.translate(this.tileWidth, 0);
+  //   ctx.scale(-1, 1);
+  //   ctx.drawImage(this.image,
+  //     offsetX, offsetY,
+  //     this.tileWidth, this.tileHeight,
+  //     0, 0,
+  //     this.tileWidth * 2, this.tileHeight * 2
+  //   );
+
+  //   this.sprites.set(sprite, clip);
+  // }
+
+  draw(ctx) { 
+    let player = new Image();
+  
     // ctx.fillStyle = this.color;
     // ctx.beginPath();
     // ctx.fillStyle = "blue";
     // ctx.rect(this.x, this.y, this.width, this.height);
     // ctx.fill();
-    let player = new Image();
+
     player.src = "sprite_base_addon_2012_12_14.png";
+    // if (this.mirror) {
+    //   // player.translate(this.width, 0);
+    //   player.scale(-1, 1);
+    //   // player.scale(-1, 1);
+
+    // }
     ctx.drawImage(player, 150, 150, 50, 50, this.x, this.y-40, 130, 130);
+    ctx.restore();
   };
   // bulletDist(){
   //   if (this.game.bullets[])
@@ -106,6 +133,7 @@ class Player extends MovingObject {
   }
 
   moveLeft(){
+    this.mirror = false
     // this.movePlayer();
 
     // if (this.xVel > 0){
@@ -114,6 +142,7 @@ class Player extends MovingObject {
     this.xVel -= 1.5;
   }
   moveRight() {
+    this.mirror = true;
     // this.movePlayer();
     // if (this.xVel < 0) {
     //   this.xVel = -.1

@@ -62,7 +62,6 @@ class GameFile {
     ctx.lineWidth = 4;
     ctx.beginPath();
     ctx.moveTo(0, 500);
-    ctx.lineTo(1000, 500);
     ctx.stroke();
     //platform
     // ctx.strokeStyle = "blue";

@@ -33,7 +33,7 @@ class Bullet extends MovingObject {
     // ctx.fill();
     let player = new Image();
     player.src = "energy_effect_base.png";
-    ctx.drawImage(player, 0, 100, 30, 25, this.x, this.y, 50, 50);
+    ctx.drawImage(player, 0, 100, 30, 25, this.x, this.y-40, 50, 50);
   };
   collideWith(otherObject) {
     if (otherObject instanceof AlienChaser) {
