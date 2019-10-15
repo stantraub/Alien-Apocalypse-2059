@@ -14,7 +14,8 @@ class Bullet extends MovingObject {
     this.y = options.y;
     this.xVel = options.xVel;
     this.yVel = 0;
-    this.game = options.game
+    this.game = options.game;
+    this.mirror = options.mirror;
     
     
   }
@@ -32,8 +33,14 @@ class Bullet extends MovingObject {
     // ctx.rect(this.x, this.y, this.width, this.height);
     // ctx.fill();
     let player = new Image();
-    player.src = "energy_effect_base.png";
-    ctx.drawImage(player, 0, 100, 30, 25, this.x, this.y-40, 50, 50);
+    if (this.mirror) {
+      player.src = "energy_effect_base.png";
+      ctx.drawImage(player, 0, 100, 30, 25, this.x, this.y - 40, 50, 50);
+    } else {
+      player.src = "reverse_bullet.png";
+      ctx.drawImage(player, 450, 100, 30, 25, this.x, this.y - 30, 50, 50);
+    }
+  
   };
   collideWith(otherObject) {
     if (otherObject instanceof AlienChaser) {

@@ -23,6 +23,7 @@ class AlienChaser extends MovingObject {
     options.game = options.game;
     options.health = 2;
     super(options)
+    this.mirror = false;
     this.speed = [0.1, 0.15, 0.2, 0.5][Math.floor(Math.random() * 4)];
     
   }
@@ -50,16 +51,24 @@ class AlienChaser extends MovingObject {
     // ctx.rect(this.x, this.y, this.width, this.height);
     // ctx.fill();
     let player = new Image();
-    player.src = "alien.gif";
-    ctx.drawImage(player, 0, 0, 110, 110, this.x, this.y-80, 150, 150);
+    if (this.mirror) {
+      player.src = "alien.gif";
+      ctx.drawImage(player, 0, 0, 110, 110, this.x, this.y - 100, 150, 150);
+    } else {
+      player.src = "alien_reversed.png";
+      ctx.drawImage(player, 890, 0, 110, 110, this.x, this.y - 90, 150, 150);
+    }
+    
   };
 
   move(){
     
     if (this.game.players[0].x < this.x && this.game.players[0].x - this.x < 500) {
       this.xVel -= 0.2;
+      this.mirror = false;
     } else if (this.game.players[0].x > this.x) {
       this.xVel += 0.2;
+      this.mirror = true;
     }
 
     this.yVel += 1.5; //increase after testing

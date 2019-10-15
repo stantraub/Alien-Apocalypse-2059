@@ -98,18 +98,24 @@ class Player extends MovingObject {
   
     // ctx.fillStyle = this.color;
     // ctx.beginPath();
-    // ctx.fillStyle = "blue";
-    // ctx.rect(this.x, this.y, this.width, this.height);
-    // ctx.fill();
 
-    player.src = "sprite_base_addon_2012_12_14.png";
+    if (this.mirror) {
+      player.src = "sprite_base_addon_2012_12_14.png";
+      ctx.drawImage(player, 150, 150, 50, 50, this.x, this.y - 40, 130, 130);
+    } else {
+      player.src = "cat_reversed.png";
+      ctx.drawImage(player, 950, 10, 50, 50, this.x-100, this.y-75, 130, 130);
+    }
+    
     // if (this.mirror) {
     //   // player.translate(this.width, 0);
     //   player.scale(-1, 1);
     //   // player.scale(-1, 1);
 
     // }
-    ctx.drawImage(player, 150, 150, 50, 50, this.x, this.y-40, 130, 130);
+    
+    // player.scale(-1, 1);
+    
     ctx.restore();
   };
   // bulletDist(){
@@ -126,7 +132,8 @@ class Player extends MovingObject {
       y: this.y + 20,
       xVel: vel,
       color: this.color,
-      game: this.game
+      game: this.game,
+      mirror: this.mirror
     });
     
     this.game.add(bullet);

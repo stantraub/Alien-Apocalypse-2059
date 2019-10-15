@@ -7,6 +7,11 @@
     height: 100%;
 }
 
+.body-background {  width: 100vw;
+   height: 100vh; 
+  background-color: rgb(3, 16, 53); 
+  /* background-image: url("minimalist-cities-by-romain-trystram-zip-in-comments-14-2560×1080.jpg") */
+}
 .title {
     /* background-color: rgba(255, 255, 255); */
     border-radius: 6px;
@@ -86,4 +91,20 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.game-div {
+    /* border: red solid; */
+    height: 700;
+    width: 1600;
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+}
+
+.button-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
