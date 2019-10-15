@@ -47,16 +47,16 @@
 // //MOVEMENT AND PHYSICS
 // const gameLoop = function() {
 //   //PLAYER MOVMENT
-  if (controls.up && player.canJump == false) {
-    player.yVel -= 30;
-    player.canJump = true;
-  }
-  if (controls.left){
-    player.xVel -= 1;
-  }
-  if (controls.right) {
-    player.xVel += 1;
-  }
+  // if (controls.up && player.canJump == false) {
+  //   player.yVel -= 30;
+  //   player.canJump = true;
+  // }
+  // if (controls.left){
+  //   player.xVel -= 1;
+  // }
+  // if (controls.right) {
+  //   player.xVel += 1;
+  // }
 //   // gravity, accelartion, and friction
 //   player.yVel += 1.5;
 //   player.x += player.xVel;

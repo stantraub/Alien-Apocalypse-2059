@@ -51,7 +51,7 @@ class GameFile {
     let background = new Image();
     background.src = "https://ze-robot.com/dl/mi/minimalist-cities-by-romain-trystram-zip-in-comments-14-2560%C3%971080.jpg";
     background.onload = function () {
-      ctx.drawImage(background, 0, 0,2560,1080);
+      ctx.drawImage(background, 0,-600,1000,1150);
     }
     
   //  ctx.clearRect(0, 0, GameFile.DIM_X, GameFile.DIM_Y);
@@ -154,6 +154,6 @@ GameFile.BG_COLOR = "lightgray";
 GameFile.DIM_X = 1000;
 GameFile.DIM_Y = 600;
 GameFile.FPS = 32;
-GameFile.NUM_ALIENCHASERS = 0;
+GameFile.NUM_ALIENCHASERS = 3;
 
 export default GameFile;

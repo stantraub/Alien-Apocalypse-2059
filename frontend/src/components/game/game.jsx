@@ -34,7 +34,7 @@ class Game extends React.Component {
             <div>
                 <div className="game-div">
                     
-                    <canvas id="game-canvas" style={{ height: "100vh", width: 1600, backgroundColor: 'gray' }}></canvas>
+                    <canvas id="game-canvas" style={{ height: "110vh", width: 1600, backgroundColor: 'gray' }}></canvas>
                     <div className="button-wrapper">
                         <button onClick={this.handleOnClick}>Logout</button>
                     </div>
