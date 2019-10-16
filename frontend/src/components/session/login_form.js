@@ -9,20 +9,15 @@ class LoginForm extends React.Component {
     this.state = {
       username: '',
       password: '',
-      errors: {}
+      errors: {},
+      highScore: 0
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
   }
   
-  // componentWillMount(){
-     
-      
-  //           this.props.logout()
-        
-  
-  // }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser === true) {
       this.props.history.push('/');

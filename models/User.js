@@ -9,7 +9,8 @@ const UserSchema = new Schema({
     password: {
         type: String,
         required: true
-    },
+    }
+    ,
     highScore: {
             type: Number
     }

@@ -1,7 +1,8 @@
 import {
     RECEIVE_CURRENT_USER,
     RECEIVE_USER_LOGOUT,
-    RECEIVE_USER_SIGN_IN
+    RECEIVE_USER_SIGN_IN,
+    RECEIVE_CURRENT_USER_SCORE
 } from '../actions/session_actions';
 
 const initialState = {
@@ -26,7 +27,12 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 isSignedIn: true
-            }
+            };
+        case RECEIVE_CURRENT_USER_SCORE:
+            return{
+                ...state,
+                score: action.score
+            }    
         default:
             return state;
     }
