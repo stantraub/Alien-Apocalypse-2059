@@ -10,20 +10,8 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    character: {
-        type: Object,
-        health: {
-            type: Boolean
-        },
-        speed: {
+    highScore: {
             type: Number
-        },
-        bulletSpeed: {
-            type: Number
-        },
-        highScore: {
-            type: Number
-        }
     }
 })
 

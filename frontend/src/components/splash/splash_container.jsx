@@ -1,18 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {login} from '../../actions/session_actions'
+import {login,logout} from '../../actions/session_actions'
 import { openModal } from '../../actions/modal_actions';
-// import {login} from '../../actions/session_actions';
+// import {login,logout} from '../../actions/session_actions';
 import Splash from './splash';
 
 const mapStateToProps = (state) => {
-    return {
-        errors: state.errors.session
+    return (
+     {state:{
+            errors: state.errors.session,
+            user: state.session.user
+     }}
+    )
     };
-};
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        logout: ()=>dispatch(logout()),
         login: user => dispatch(login(user)),
         openModal: modal => dispatch(openModal(modal))
     }

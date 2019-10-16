@@ -37,6 +37,9 @@ class Player extends MovingObject {
     super(options);
     this.score = 0;
     this.mirror = false;
+    this.player = new Image();
+    this.player.src = "sprite_base_addon_2012_12_14.png";
+ 
   }
 
 
@@ -94,35 +97,26 @@ class Player extends MovingObject {
   // }
 
   draw(ctx) { 
-    let player = new Image();
   
+    ctx.drawImage(this.player, 150, 150, 50, 50, this.x, this.y - 40, 130, 130);
     // ctx.fillStyle = this.color;
     // ctx.beginPath();
     // ctx.fillStyle = "blue";
     // ctx.rect(this.x, this.y, this.width, this.height);
     // ctx.fill();
-    if (this.mirror) {
-      player.src = "sprite_base_addon_2012_12_14.png";
-      ctx.drawImage(player, 150, 150, 50, 50, this.x, this.y - 40, 130, 130);
-    } else {
-      player.src = "cat_reversed.png";
-      ctx.drawImage(player, 950, 10, 50, 50, this.x-100, this.y-75, 130, 130);
-    }
-    
     // if (this.mirror) {
-    //   // player.translate(this.width, 0);
-    //   player.scale(-1, 1);
-    //   // player.scale(-1, 1);
-
+      // player.src = "sprite_base_addon_2012_12_14.png";
+      // ctx.drawImage(player, 150, 150, 50, 50, this.x, this.y - 40, 130, 130);
+    // } else {
+    //   player.src = "cat_reversed.png";
+    //   ctx.drawImage(player, 950, 10, 50, 50, this.x-100, this.y-75, 130, 130);
     // }
     
-    // player.scale(-1, 1);
+ 
     
     ctx.restore();
   };
-  // bulletDist(){
-  //   if (this.game.bullets[])
-  // }
+
   fireBullet(vel) {
   
     if (this.xVel < 0){

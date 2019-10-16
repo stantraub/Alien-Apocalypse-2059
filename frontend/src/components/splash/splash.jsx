@@ -4,7 +4,15 @@ import '../../css/reset.css';
 
 
 class Splash extends React.Component {
+    constructor(props){
+        super(props)
+        console.log(this.props)
+    }
+
+
+
     render() {
+        
         return(
             <div className="main-div">
                 <img className="background" src="https://i.pinimg.com/originals/ef/a9/39/efa9396fe51653bc074f75d2252692d0.gif"/>
