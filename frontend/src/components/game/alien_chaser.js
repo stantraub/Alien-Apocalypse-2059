@@ -53,13 +53,13 @@ class AlienChaser extends MovingObject {
     // ctx.rect(this.x, this.y, this.width, this.height);
     // ctx.fill();
     // let player = new Image();
-    // if (this.mirror) {
-      // player.src = "alien.gif";
+    if (this.mirror) {
+      this.AlienChaser.src = "alien.gif";
       ctx.drawImage(this.AlienChaser, 0, 0, 110, 110, this.x, this.y - 100, 150, 150);
-    // } else {
-    //   player.src = "alien_reversed.png";
-    //   ctx.drawImage(player, 890, 0, 110, 110, this.x, this.y - 90, 150, 150);
-    // }
+    } else {
+      this.AlienChaser.src = "alien_reversed.png";
+      ctx.drawImage(this.AlienChaser, 890, 0, 110, 110, this.x, this.y - 90, 150, 150);
+    }
     
   };
 

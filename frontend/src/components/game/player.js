@@ -97,8 +97,14 @@ class Player extends MovingObject {
   // }
 
   draw(ctx) { 
-  
-    ctx.drawImage(this.player, 150, 150, 50, 50, this.x, this.y - 40, 130, 130);
+    if(this.mirror){
+      this.player.src = "sprite_base_addon_2012_12_14.png";
+      ctx.drawImage(this.player, 150, 150, 50, 50, this.x, this.y - 40, 130, 130);
+    }else{
+        this.player.src = "cat_reversed.png";
+      ctx.drawImage(this.player, 950, 10, 50, 50, this.x-100, this.y-75, 130, 130);
+    }
+    // ctx.drawImage(this.player, 150, 150, 50, 50, this.x, this.y - 40, 130, 130);
     // ctx.fillStyle = this.color;
     // ctx.beginPath();
     // ctx.fillStyle = "blue";
@@ -114,7 +120,7 @@ class Player extends MovingObject {
     
  
     
-    ctx.restore();
+    // ctx.restore();
   };
 
   fireBullet(vel) {
