@@ -15,7 +15,14 @@ class LoginForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
   }
-
+  
+  // componentWillMount(){
+     
+      
+  //           this.props.logout()
+        
+  
+  // }
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser === true) {
       this.props.history.push('/');

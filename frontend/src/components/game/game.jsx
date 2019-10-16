@@ -7,9 +7,11 @@ class Game extends React.Component {
     constructor(props){
         super(props)
     this.handleOnClick = this.handleOnClick.bind(this);    
+    window.GameOver=false;
     }
+
     componentDidMount(){
-        console.log("working")
+        
         const canvasEl = document.getElementById("game-canvas");
 
         canvasEl.width = GameFile.DIM_X;
@@ -18,8 +20,18 @@ class Game extends React.Component {
         const ctx = canvasEl.getContext("2d");
         const game = new GameFile();
         window.game = game;
-        new GameView(game, ctx).start();
+    const gameView=new GameView(game, ctx, this.props.logout)
+    gameView.start();
     }
+
+    // checkGameOver(){
+    //     console.log(window.GameOver)
+    //     while(window.GameOver===false){
+
+    //     }
+    //     this.props.history.push('/test')
+    // }
+
     handleOnClick(e){
         e.preventDefault();
         
@@ -28,6 +40,7 @@ class Game extends React.Component {
 
 
     render(){
+     
         let game;
         if(this.props.user){
             game =
@@ -43,8 +56,9 @@ class Game extends React.Component {
                 </div>
            
             
-            </div>
+            </div>;
         }
+        // this.checkGameOver();
         return (
         <div>
             {game}

@@ -9,8 +9,25 @@ class GameFile {
     this.bullets = [];
     this.players = [];
     this.addAlienChasers();
+    this.gameOver=false;
+    this.background = new Image();
+    this.background.src = "https://ze-robot.com/dl/mi/minimalist-cities-by-romain-trystram-zip-in-comments-14-2560%C3%971080.jpg";
   
   }
+
+  // gameOverScreen(ctx){
+  //   console.log('yes')
+  //   ctx.clearRect(0, 0, GameFile.DIM_X, GameFile.DIM_Y);
+  //   // ctx.fillStyle = "black";
+  //   // ctx.fillRect(0, 0, GameFile.DIM_X, GameFile.DIM_Y);
+  //   // ctx.fillStyle = "red";
+  //   // ctx.textAlign = "center";
+  //   // ctx.fillText(`Game Over`, 500, 300);
+  //   // ctx.fillStyle = "red";
+  //   // ctx.textAlign = "center";
+  //   // ctx.fillText(`Score: ${this.players[0].score}`, 500, 330);
+  // }
+
   add(object) {
     if (object instanceof AlienChaser) {
       this.alienChasers.push(object);
@@ -22,15 +39,13 @@ class GameFile {
       throw new Error("unknown type of object");
     }
   }
-  random_item(items) {
-    return items[Math.floor(Math.random() * items.length)];
-  }
+
 
   addAlienChasers() {
     if (this.alienChasers.length === 0){
       for (let i = 0; i < GameFile.NUM_ALIENCHASERS; i++) {
 
-        this.add(new AlienChaser({ game: this, x: this.random_item([950, 50]) }));
+        this.add(new AlienChaser({ game: this}));
       
       }
     }
@@ -48,15 +63,9 @@ class GameFile {
 
   draw(ctx) {
     //background
-    let background = new Image();
-    background.src = "https://ze-robot.com/dl/mi/minimalist-cities-by-romain-trystram-zip-in-comments-14-2560%C3%971080.jpg";
-    background.onload = function () {
-      ctx.drawImage(background, 0,-600,1000,1150);
-    }
     
-  //  ctx.clearRect(0, 0, GameFile.DIM_X, GameFile.DIM_Y);
-    // ctx.fillStyle = GameFile.BG_COLOR;
-    // ctx.fillRect(0, 0, GameFile.DIM_X, GameFile.DIM_Y);
+    ctx.drawImage(this.background, 0,-600,1000,1150);
+    
     //floor
     ctx.strokeStyle = "gray";
     ctx.lineWidth = 4;
@@ -99,6 +108,8 @@ class GameFile {
       this.alienChasers.forEach(alien => {
         alien.remove();
       });
+      this.gameOver=true;   
+      
     }
   }
 

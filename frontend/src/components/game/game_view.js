@@ -1,28 +1,11 @@
 import key from "keymaster";
 class GameView {
-  constructor(game, ctx){
+  constructor(game, ctx,logout){
     this.ctx = ctx;
     this.game = game;
+    this.logout = logout;
     this.player = this.game.addPlayer()
-    this.controls = {
-    // left: false, right: false, up: false, keyListener:function(action) {
-    //   const keyStatus = (action.type == "keydown") ? true : false;
-    //   //sets the current keydown action
-    //   switch (action.keyCode) {
-    //     case 65:// A Left
-    //       controls.left = keyStatus
-    //       break;
-    //     case 87://W Up
-    //       controls.up = keyStatus
-    //       break;
-    //     case 68://D Right
-    //       controls.right = keyStatus
-    //     // case 32: //SPACE SHOOT
-    //     //   controls.shoot = keyStatus
-    //   }
-    // }
-  };
-
+    // window.GameOver=false;
   }
 
   start() {
@@ -36,10 +19,7 @@ class GameView {
   bindKeyHandlers() {
     
     console.log(this.player)
-    // Object.keys(GameView.MOVES).forEach((k) => {
-    //   const move = GameView.MOVES[k];
-    //   key(k, () => { player.playerAction(move); });
-    // });
+ 
     key(("a"), () => {this.player.moveLeft(); });
     key("d", () => { this.player.moveRight(); });
     key("w", () => { this.player.moveJump(); });
@@ -50,16 +30,23 @@ class GameView {
   }
 
   animate(time) {
+    this.frame = requestAnimationFrame(this.animate.bind(this));
     const timeDelta = time - this.lastTime;
-
+    // console.log(this.game)
     this.game.step(timeDelta);
     this.game.draw(this.ctx);
     this.lastTime = time;
+    if(this.game.gameOver){
+      // window.history.go(-1)
+      cancelAnimationFrame(this.frame);
+      this.logout();
+    }
 
     // every call to animate requests causes another call to animate
-    requestAnimationFrame(this.animate.bind(this));
   }
 }
+GameView.DIM_X = 1000;
+GameView.DIM_Y = 600;
 
 
 export default GameView;

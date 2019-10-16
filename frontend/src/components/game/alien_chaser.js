@@ -25,6 +25,8 @@ class AlienChaser extends MovingObject {
     super(options)
     this.mirror = false;
     this.speed = [0.1, 0.15, 0.2, 0.5][Math.floor(Math.random() * 4)];
+    this.AlienChaser = new Image();
+    this.AlienChaser.src = "alien.gif";
     
   }
   collideWith(otherObject) {
@@ -50,14 +52,14 @@ class AlienChaser extends MovingObject {
     // ctx.fillStyle = "blue";
     // ctx.rect(this.x, this.y, this.width, this.height);
     // ctx.fill();
-    let player = new Image();
-    if (this.mirror) {
-      player.src = "alien.gif";
-      ctx.drawImage(player, 0, 0, 110, 110, this.x, this.y - 100, 150, 150);
-    } else {
-      player.src = "alien_reversed.png";
-      ctx.drawImage(player, 890, 0, 110, 110, this.x, this.y - 90, 150, 150);
-    }
+    // let player = new Image();
+    // if (this.mirror) {
+      // player.src = "alien.gif";
+      ctx.drawImage(this.AlienChaser, 0, 0, 110, 110, this.x, this.y - 100, 150, 150);
+    // } else {
+    //   player.src = "alien_reversed.png";
+    //   ctx.drawImage(player, 890, 0, 110, 110, this.x, this.y - 90, 150, 150);
+    // }
     
   };
 
