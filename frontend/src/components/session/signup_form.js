@@ -11,7 +11,7 @@ class SignupForm extends React.Component {
             highscore: 0,
             errors: {}
         };
-
+        console.log(this.props)
         this.handleSubmit = this.handleSubmit.bind(this);
         this.clearedErrors = false;
     }
@@ -39,7 +39,7 @@ class SignupForm extends React.Component {
             highscore: this.state.highscore
         };
 
-        this.props.signup(user, this.props.history).then(this.props.history.push('/game')).then(this.props.closeModal);
+        this.props.signup(user).then(this.props.history.push('/game')).then(this.props.closeModal);
     }
 
     renderErrors() {

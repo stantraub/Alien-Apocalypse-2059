@@ -18,7 +18,7 @@ class GameView {
   
   bindKeyHandlers() {
     
-    console.log(this.player)
+
  
     key(("a"), () => {this.player.moveLeft(); });
     key("d", () => { this.player.moveRight(); });

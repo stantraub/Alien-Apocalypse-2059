@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import React from 'react';
-import { login,logout } from '../../actions/session_actions';
+import { login,logout, fetchHighScore } from '../../actions/session_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
 import LoginForm from './login_form';
 
@@ -14,7 +14,7 @@ const mapStateToProps = ({ errors }) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        logout:()=>dispatch(logout()),
+     
         login: user => dispatch(login(user)),
         otherForm: (
             <button onClick={() => dispatch(openModal('login'))}>

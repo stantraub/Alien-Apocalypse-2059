@@ -6,6 +6,8 @@ export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
 export const RECEIVE_USER_SIGN_IN = "RECEIVE_USER_SIGN_IN";
 
+export const RECEIVE_CURRENT_USER_SCORE = "RECEIVE_CURRENT_USER_SCORE";
+
 export const receiveCurrentUser = currentUser => ({
     type: RECEIVE_CURRENT_USER,
     currentUser
@@ -24,6 +26,11 @@ export const logoutUser = () => ({
     type: RECEIVE_USER_LOGOUT
 });
 
+export const receiveScore = score=>({
+    type: RECEIVE_CURRENT_USER_SCORE,
+    score
+})
+
 export const signup = user => dispatch => (
     APIUtil.signup(user).then(() => (
         dispatch(login(user))
@@ -32,12 +39,21 @@ export const signup = user => dispatch => (
     ))
 );
 
+export const fetchHighScore = user=>dispatch=>{
+    return(
+        APIUtil.highscore(user).then((res)=>{
+            console.log(res);
+            dispatch(receiveScore(res.highScore))
+            
+        })
+    )
+}
+
 export const login = user => dispatch => {
     console.log(user);
    
     return(
         APIUtil.login(user).then(res => {
-            console.log('success')
             console.log(res.data);
             const { token } = res.data;
             localStorage.setItem('jwtToken', token);

@@ -18,6 +18,12 @@ router.get('/current', passport.authenticate('jwt', { session: false }, (req, re
     })
 }))
 
+router.get('/highscore',(req,res)=>{
+    // console.log(res)
+    User.findOne(req.body.username).then(user=>{
+        return res.json({highScore: user.highScore})
+    })
+})
 
 router.post('/register', (req, res) => {
     const { errors, isValid } = validateRegisterInput(req.body);
@@ -34,7 +40,6 @@ router.post('/register', (req, res) => {
                     username: req.body.username, 
                     password: req.body.password,
                     highScore: 0
-
                 })
 
                 bcrypt.genSalt(10, (err, salt) => {
@@ -68,11 +73,10 @@ router.post('/login', (req, res) => {
             if (!user) {
                 return res.status(404).json({ username: 'This user does not exist' });
             }
-
             bcrypt.compare(password, user.password)
                 .then(isMatch => {
                     if (isMatch) {
-                        const payload = { id: user.id, username: user.username, highScore: user.highScore };
+                        const payload = { id: user.id, username: user.username };
 
                         jwt.sign(
                             payload,
