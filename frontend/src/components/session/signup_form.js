@@ -38,8 +38,8 @@ class SignupForm extends React.Component {
             password2: this.state.password2,
             highscore: this.state.highscore
         };
-
-        this.props.signup(user).then(this.props.history.push('/game')).then(this.props.closeModal);
+        
+        this.props.signup(user).then(()=>{this.props.history.push('/game')}).then(this.props.closeModal);
     }
 
     renderErrors() {
