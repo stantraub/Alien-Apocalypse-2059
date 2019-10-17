@@ -8,9 +8,7 @@ export const setAuthToken = token => {
     }
 };
 
-export const highscore =(userData)=>{
-    return axios.get('/api/users/highscore', userData);
-}
+
 export const signup = (userData) => {
     return axios.post('/api/users/register', userData);
 };
@@ -19,3 +17,7 @@ export const login = (userData) => {
   
     return axios.post('/api/users/login', userData);
 };
+
+export const updateHighScore = (userData, highscore) => {
+    return axios.patch('/api/users/highscore/1', {userData, highscore})
+}
