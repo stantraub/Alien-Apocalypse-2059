@@ -5,7 +5,6 @@ class GameView {
     this.game = game;
     this.logout = logout;
     this.player = this.game.addPlayer()
-    // window.GameOver=false;
   }
 
   start() {
@@ -37,12 +36,12 @@ class GameView {
     this.game.draw(this.ctx);
     this.lastTime = time;
     if(this.game.gameOver){
-      // window.history.go(-1)
+   
       cancelAnimationFrame(this.frame);
       this.logout();
     }
 
-    // every call to animate requests causes another call to animate
+    
   }
 }
 GameView.DIM_X = 1000;

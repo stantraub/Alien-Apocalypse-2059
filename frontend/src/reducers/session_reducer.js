@@ -27,12 +27,7 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 isSignedIn: true
-            };
-        case RECEIVE_CURRENT_USER_SCORE:
-            return{
-                ...state,
-                score: action.score
-            }    
+            };  
         default:
             return state;
     }

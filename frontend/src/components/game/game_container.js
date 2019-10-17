@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
-import {logout, fetchHighScore} from '../../actions/session_actions';
+import {logout} from '../../actions/session_actions';
 import Game from './game';
 
 const mapStateToProps = (state) => {
@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchHighScore: (user)=> dispatch(fetchHighScore(user)),
+        
         logout: () => dispatch(logout())
     }
 }

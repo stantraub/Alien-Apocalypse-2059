@@ -14,16 +14,17 @@ router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
 router.get('/current', passport.authenticate('jwt', { session: false }, (req, res) => {
     res.json({
         id: req.user.id,
-        username: req.user.username
+        username: req.user.username,
+        highScore: req.user.highScore
     })
 }))
 
-router.get('/highscore',(req,res)=>{
-    // console.log(res)
-    User.findOne(req.body.username).then(user=>{
-        return res.json({highScore: user.highScore})
-    })
-})
+// router.get('/highscore',(req,res)=>{
+//     // console.log(res)
+//     User.findOne(req.body.username).then(user=>{
+//         return res.json({highScore: user.highScore})
+//     })
+// })
 
 router.post('/register', (req, res) => {
     const { errors, isValid } = validateRegisterInput(req.body);
@@ -53,7 +54,7 @@ router.post('/register', (req, res) => {
         })
 })
 
-// router.patch('/highscore',(req,res)=>{})
+
 
 router.post('/login', (req, res) => {
     const { errors, isValid } = validateLoginInput(req.body);
@@ -76,7 +77,7 @@ router.post('/login', (req, res) => {
             bcrypt.compare(password, user.password)
                 .then(isMatch => {
                     if (isMatch) {
-                        const payload = { id: user.id, username: user.username };
+                        const payload = { id: user.id, username: user.username, highScore: user.highScore };
 
                         jwt.sign(
                             payload,

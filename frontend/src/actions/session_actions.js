@@ -26,10 +26,7 @@ export const logoutUser = () => ({
     type: RECEIVE_USER_LOGOUT
 });
 
-export const receiveScore = score=>({
-    type: RECEIVE_CURRENT_USER_SCORE,
-    score
-})
+
 
 export const signup = user => dispatch => (
     APIUtil.signup(user).then(() => (
@@ -39,15 +36,6 @@ export const signup = user => dispatch => (
     ))
 );
 
-export const fetchHighScore = user=>dispatch=>{
-    return(
-        APIUtil.highscore(user).then((res)=>{
-            console.log(res);
-            dispatch(receiveScore(res.highScore))
-            
-        })
-    )
-}
 
 export const login = user => dispatch => {
     console.log(user);

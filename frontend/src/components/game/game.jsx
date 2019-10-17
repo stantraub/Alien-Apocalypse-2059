@@ -8,12 +8,12 @@ class Game extends React.Component {
         super(props)
     this.handleOnClick = this.handleOnClick.bind(this);    
     
-    window.GameOver=false;
-   
+
+   console.log(this.props.user)
     }
 
     componentDidMount(){
-        this.props.fetchHighScore();
+        
         const canvasEl = document.getElementById("game-canvas");
 
         canvasEl.width = GameFile.DIM_X;
