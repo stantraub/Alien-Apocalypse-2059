@@ -19,12 +19,16 @@ router.get('/current', passport.authenticate('jwt', { session: false }, (req, re
     })
 }))
 
-// router.get('/highscore',(req,res)=>{
-//     // console.log(res)
-//     User.findOne(req.body.username).then(user=>{
-//         return res.json({highScore: user.highScore})
-//     })
-// })
+router.patch('/highscore/:id',(req,res)=>{
+   
+    User.findOne({username:req.body.userData.username}).then(user=>{
+        if(req.body.highscore>user.highScore){
+            user.highScore = req.body.highscore;
+            user.save();
+        }
+      
+    return res.json(user)}).catch(err=>console.log(err))
+    })
 
 router.post('/register', (req, res) => {
     const { errors, isValid } = validateRegisterInput(req.body);

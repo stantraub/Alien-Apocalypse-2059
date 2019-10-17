@@ -17,3 +17,7 @@ export const login = (userData) => {
   
     return axios.post('/api/users/login', userData);
 };
+
+export const updateHighScore = (userData, highscore) => {
+    return axios.patch('/api/users/highscore/1', {userData, highscore})
+}

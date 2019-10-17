@@ -22,7 +22,8 @@ class Game extends React.Component {
         const ctx = canvasEl.getContext("2d");
         const game = new GameFile();
         window.game = game;
-    const gameView=new GameView(game, ctx, this.props.logout)
+        console.log(window.game)
+    const gameView=new GameView(game, ctx, this.props.logout, this.props.update, this.props.user)
     gameView.start();
     }
 
@@ -32,8 +33,13 @@ class Game extends React.Component {
         this.props.logout()
     }
 
+    // componentWillUnmount(){
+    //     console.log('yes')
+    //     this.props.update(this.props.user, window.game.players[0].score)
+    // }
 
     render(){
+       
         let game;
         if(this.props.user){
             game =

@@ -61,3 +61,12 @@ export const logout = () => dispatch => {
     APIUtil.setAuthToken(false)
     dispatch(logoutUser())
 };
+
+
+export const update = (user,highscore) => dispatch => (
+    APIUtil.updateHighScore(user, highscore).then(() => (
+        dispatch(receiveCurrentUser(user))
+    ), err => (
+        dispatch(receiveErrors(err.response.data))
+    ))
+);

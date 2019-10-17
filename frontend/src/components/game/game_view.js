@@ -1,9 +1,11 @@
 import key from "keymaster";
 class GameView {
-  constructor(game, ctx,logout){
+  constructor(game, ctx,logout, update, user){
     this.ctx = ctx;
     this.game = game;
     this.logout = logout;
+    this.update= update;
+    this.user = user;
     this.player = this.game.addPlayer()
   }
 
@@ -38,6 +40,7 @@ class GameView {
     if(this.game.gameOver){
    
       cancelAnimationFrame(this.frame);
+      this.update(this.user, this.player.score)
       this.logout();
     }
 
