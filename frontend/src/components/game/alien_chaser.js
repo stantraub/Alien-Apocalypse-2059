@@ -49,9 +49,9 @@ class AlienChaser extends MovingObject {
   draw(ctx) {
     // ctx.fillStyle = this.color;ala
     // ctx.beginPath();
-    // ctx.fillStyle = "blue";
-    // ctx.rect(this.x, this.y, this.width, this.height);
-    // ctx.fill();
+    ctx.fillStyle = "blue";
+    ctx.rect(this.x, this.y, this.width, this.height);
+    ctx.fill();
     // let player = new Image();
     if (this.mirror) {
       this.AlienChaser.src = "alien.gif";

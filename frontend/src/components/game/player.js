@@ -35,6 +35,7 @@ class Player extends MovingObject {
     options.yVel = 0;
     options.health = 5;
     super(options);
+    this.canJump = options.canJump;
     this.jumpcount=0;
     this.score = 0;
     this.mirror = false;
@@ -61,18 +62,20 @@ class Player extends MovingObject {
     // this.yVel *= .92;
 
     if (this.y > 600 - 100 - this.height){
-      this.canJump = false;
+      this.jumpcount = 0;
       this.y = 600 - 100 - this.height;
       this.yVel = 0;
     }
    
    
 
-    if (this.x < 5 + this.width) {
+    if (this.x < 0) {
       this.xVel = 0;
+      this.x = 0;
       //change for tesing since map wont always be the same shape
-    } else if (this.x > 995 - this.width) {
+    } else if (this.x + 50 > 1000) {
       this.xVel = 0;
+      this.x = 1000 - 50;
     }
 
   };
@@ -92,7 +95,7 @@ class Player extends MovingObject {
 
   fireBullet(vel) {
   
-    if (this.xVel < 0){
+    if (!this.mirror){
       vel = -vel;
     }
 
@@ -127,11 +130,9 @@ class Player extends MovingObject {
   }
   moveJump() { //add jumping logic like canJump, and the height restrictions 
     // this.movePlayer();
-    if(this.jumpcount===0){
-      this.yVel -=25;
+    if(this.jumpcount < 2){
+      this.yVel -=20;
       this.jumpcount+=1
-    }else{
-      this.jumpcount=0
     }
       
   }
