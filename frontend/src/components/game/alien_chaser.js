@@ -5,8 +5,8 @@ import Bullet from "./bullet";
 
 const DEFAULTS = {
   COLOR: "green",
-  HEIGHT: 40,
-  WIDTH: 15,
+  HEIGHT: 100,
+  WIDTH: 40,
   XVEL: 1,
   YVEL: 3
 };
@@ -49,16 +49,16 @@ class AlienChaser extends MovingObject {
   draw(ctx) {
     // ctx.fillStyle = this.color;ala
     // ctx.beginPath();
-    // ctx.fillStyle = "blue";
-    // ctx.rect(this.x, this.y, this.width, this.height);
-    // ctx.fill();
+    ctx.fillStyle = "blue";
+    ctx.rect(this.x, this.y, this.width, this.height);
+    ctx.fill();
     // let player = new Image();
     if (this.mirror) {
       this.AlienChaser.src = "alien.gif";
-      ctx.drawImage(this.AlienChaser, 0, 0, 110, 110, this.x, this.y - 100, 150, 150);
+      ctx.drawImage(this.AlienChaser, 0, 0, 110, 110, this.x, this.y, 150, 150);
     } else {
       this.AlienChaser.src = "alien_reversed.png";
-      ctx.drawImage(this.AlienChaser, 890, 0, 110, 110, this.x, this.y - 90, 150, 150);
+      ctx.drawImage(this.AlienChaser, 890, 0, 110, 110, this.x, this.y, 150, 150);
     }
     
   };

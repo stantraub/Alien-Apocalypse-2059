@@ -6,7 +6,9 @@ class GameView {
     this.logout = logout;
     this.update= update;
     this.user = user;
-    this.player = this.game.addPlayer()
+    this.player = this.game.addPlayer();
+    this.cooldown=false;
+    this.cooldownfunc = this.cooldownfunc.bind(this);
   }
 
   start() {
@@ -15,6 +17,10 @@ class GameView {
     
     // start the animation
     requestAnimationFrame(this.animate.bind(this));
+  }
+
+  cooldownfunc(){
+    this.cooldown=false;
   }
   
   bindKeyHandlers() {
@@ -26,7 +32,14 @@ class GameView {
     key("w", () => { this.player.moveJump(); });
 
 
-    key("space", () => { this.player.fireBullet(8); setTimeout(3000); });
+    key("space", () => { 
+      if(!this.cooldown){
+        this.player.fireBullet(8)
+        this.cooldown=true;
+        setTimeout(()=>this.cooldownfunc(),200)
+         }
+      }
+    );
   
   }
 
