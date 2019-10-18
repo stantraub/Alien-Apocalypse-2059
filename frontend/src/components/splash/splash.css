@@ -7,6 +7,10 @@
     height: 100%;
 }
 
+.main-div {
+    display: flex;
+    flex-direction: column;
+}
 .body-background {  width: 100vw;
    height: 100vh; 
   background-color: rgb(3, 16, 53); 
@@ -47,7 +51,7 @@
     z-index: 2;
     position: absolute;
     bottom: 265px;
-    left: 35%;
+    left: 30%;
     /* background-color: lightgray; */
     height: 80px;
     padding-right: 10px;
@@ -75,6 +79,35 @@
     cursor: pointer;
 }
 
+.session-button:hover {
+    background-color: rgb(14, 235, 66);
+    box-shadow: inset 0px -7px 0px 0px green;
+}
+
+.session-button-demo{
+     font-family: 'Press Start 2P';
+    font-size: 15px;
+    height: 45px;
+    box-sizing: border-box;
+    margin-right: 10px;
+    margin-left: 10px;
+    border-radius: 6px;
+    padding-bottom: 5px;
+    padding-right: 20px;
+    padding-left: 20px;
+    display: inline-block;
+    margin-top: 20px;
+    background-color: rgb(242, 0, 255);
+    box-shadow: inset 0px -7px 0px 0px rgb(71, 2, 77);
+    color: white;
+    text-decoration: none;
+    text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
+    cursor: pointer;
+}
+
+.session-button-demo:hover{
+  background-color: rgb(155, 21, 128);
+    box-shadow: inset 0px -7px 0px 0px rgb(71, 2, 77);}
 
 .modal-background {
   position: fixed;
@@ -107,4 +140,58 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.highscore-div {
+    color: white;
+    text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
+    font-family: 'Press Start 2P';
+    font-size: 20px;
+    background-color: blue;
+    /* box-shadow: inset 0px -7px 0px 0px darkblue; */
+    position: fixed;
+    /* width: 70vw;
+    height: 50vh; */
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 25%;
+    margin-left: 36%;
+    text-align: left;
+    padding: 10px;;
+    padding-left: 20px;
+    /* bottom: 1000px; */
+    width: 500px;
+    vertical-align: top;
+        border: white 1px solid;
+
+    /* box-shadow: 0 7px 0 0 grey; */
+    border-radius: 6px;
+}
+
+.highscore-top-div {
+    color: white;
+    font-family: 'Press Start 2P';
+    font-size: 20px;
+    border: white 1px solid;
+    text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
+
+    background-color: blue;
+    position: fixed;
+    /* width: 70vw;
+    height: 50vh; */
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20%;
+    margin-left: 43%;
+    text-align: left;
+    padding: 10px;;
+    padding-left: 20px;
+    /* bottom: 1000px; */
+    width: 255px;
+    vertical-align: top;
+    
+    border-radius: 6px;
+    /* border: red 1px solid; */
+
+    
 }

@@ -62,7 +62,8 @@ class LoginForm extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <div className="session-modal">
             <br/>
-              <input 
+              <input
+                maxlength="12" 
                 className="session-modal-input"
                 type="text"
                 value={this.state.username}

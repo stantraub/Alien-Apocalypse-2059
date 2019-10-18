@@ -4,14 +4,16 @@ import {fetchHighscores} from '../../actions/session_actions';
 import Highscore from "./highscore";
 
 const msp = (state) => {
-    
+  
+    return ({
+        scores: state.session.scores || []
+    })
 }
 
 const mdp = (dispatch) => {
     return {
-        fetchHighscores: (scores)=> dispatch(fetchHighscores(scores))
+        fetchHighscores: ()=> dispatch(fetchHighscores())
     }
-    
 }
 
 export default connect(msp, mdp)(Highscore);

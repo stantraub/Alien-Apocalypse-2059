@@ -21,7 +21,24 @@ router.get('/current', passport.authenticate('jwt', { session: false }, (req, re
 
 router.get('/highscores', (req,res) => {
     User.find({}).then(users => {
-        console.log(users)
+        let top = [];
+        users.forEach((user) => {
+            if (user.highScore > 0) {
+                top.push({ 
+                    username: user.username,
+                    highScore: user.highScore
+                })
+            }
+        
+        
+        })
+
+        top.sort((a, b) => (a.highScore > b.highScore) ? -1 : 1)
+
+       
+
+        // top.push(users.highScore);
+        res.json(top.slice(0, 5));
     })
 })
 router.patch('/highscore/:id',(req,res)=>{

@@ -61,6 +61,7 @@ class SignupForm extends React.Component {
                     <div className="login-form">
                         <br />
                         <input 
+                            maxlength="12" 
                             className="session-modal-input"
                             type="text"
                             value={this.state.username}

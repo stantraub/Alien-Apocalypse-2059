@@ -83,12 +83,12 @@ class GameFile {
  
     ///score
     ctx.font = "30px Comic Sans MS";
-    ctx.fillStyle = "red";
+    ctx.fillStyle = "yellow";
     ctx.textAlign = "center";
     ctx.fillText(`Score: ${this.players[0].score}`, 920, 50);
 
     ctx.font = "30px Comic Sans MS";
-    ctx.fillStyle = "red";
+    ctx.fillStyle = "yellow";
     ctx.textAlign = "center";
     ctx.fillText(`Health: ${this.players[0].health}`, 80, 50);
     this.allObjects().forEach((object) => {

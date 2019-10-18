@@ -32,7 +32,7 @@ export default function (state = initialState, action) {
         case RECEIVE_ALL_SCORES:
             return {
                 ...state,
-                scores: action.scores
+                scores: action.scores.data || []
             }
         default:
             return state;
