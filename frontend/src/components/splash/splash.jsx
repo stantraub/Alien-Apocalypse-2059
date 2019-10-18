@@ -47,7 +47,7 @@ class Splash extends React.Component {
                     &nbsp;
                     <button onClick={() => this.props.openModal('signup')} className="session-button">
                         
-                        Create account
+                        Create Account
                 
                     </button>
                     <button onClick={this.handleDemo} className="session-button-demo">
