@@ -22,7 +22,7 @@ class Highscore extends React.Component {
         //         </ul>
         //     </div>
         // }
-        console.log(this.props)
+       
         let scores = this.props.scores.map((data, i) => {
                 return (
                     <tbody key={i}>

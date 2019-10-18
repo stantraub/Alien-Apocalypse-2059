@@ -9,7 +9,6 @@ class Game extends React.Component {
     this.handleOnClick = this.handleOnClick.bind(this);    
     
 
-   console.log(this.props.user)
     }
 
     componentDidMount(){
@@ -22,7 +21,6 @@ class Game extends React.Component {
         const ctx = canvasEl.getContext("2d");
         const game = new GameFile();
         window.game = game;
-        console.log(window.game)
     const gameView=new GameView(game, ctx, this.props.logout, this.props.update, this.props.user)
     gameView.start();
     }

@@ -11,7 +11,6 @@ class SignupForm extends React.Component {
             highscore: 0,
             errors: {}
         };
-        console.log(this.props)
         this.handleSubmit = this.handleSubmit.bind(this);
         this.clearedErrors = false;
     }

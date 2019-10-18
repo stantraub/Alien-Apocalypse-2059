@@ -85,8 +85,6 @@ router.post('/register', (req, res) => {
 router.post('/login', (req, res) => {
     const { errors, isValid } = validateLoginInput(req.body);
  
-    console.log('hit the router');
-    console.log(errors);
 
     if (!isValid) {
         return res.status(400).json(errors);
@@ -111,8 +109,7 @@ router.post('/login', (req, res) => {
                             // Tell the key to expire in one hour
                             { expiresIn: 3600 },
                             (err, token) => {
-                                console.log("users model");
-                                console.log(token);
+                           
                                 res.json({
                                     success: true,
                                     token: 'Bearer ' + token
