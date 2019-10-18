@@ -35,6 +35,7 @@ class Player extends MovingObject {
     options.yVel = 0;
     options.health = 5;
     super(options);
+    this.jumpcount=0;
     this.score = 0;
     this.mirror = false;
     this.player = new Image();
@@ -59,11 +60,12 @@ class Player extends MovingObject {
     // this.xVel *= .92; //readjust to .9 after testing
     // this.yVel *= .92;
 
-    if (this.y > 600 - 100 - this.height) {
+    if (this.y > 600 - 100 - this.height){
       this.canJump = false;
       this.y = 600 - 100 - this.height;
       this.yVel = 0;
     }
+   
    
 
     if (this.x < 5 + this.width) {
@@ -125,7 +127,13 @@ class Player extends MovingObject {
   }
   moveJump() { //add jumping logic like canJump, and the height restrictions 
     // this.movePlayer();
-    this.yVel -=20;
+    if(this.jumpcount===0){
+      this.yVel -=25;
+      this.jumpcount+=1
+    }else{
+      this.jumpcount=0
+    }
+      
   }
 
 }
