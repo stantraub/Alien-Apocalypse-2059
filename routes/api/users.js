@@ -19,6 +19,11 @@ router.get('/current', passport.authenticate('jwt', { session: false }, (req, re
     })
 }))
 
+router.get('/highscores', (req,res) => {
+    User.find({}).then(users => {
+        console.log(users)
+    })
+})
 router.patch('/highscore/:id',(req,res)=>{
    
     User.findOne({username:req.body.userData.username}).then(user=>{
