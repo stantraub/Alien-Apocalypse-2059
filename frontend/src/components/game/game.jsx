@@ -43,9 +43,22 @@ class Game extends React.Component {
             game =
             <div>
                 <div className="game-div">
-                    
+                    <div className="instruction-container">
+                        <div className='instruction-wrapper'>
+                            <h1 class="instructions">Instructions</h1>
+                            <br />
+                            <div>
+                                <img className="img-border" src="./wad.png" />
+                            </div>
+                            <br />
+                            <div>
+                                <img className="img-border" src="./space_bar.png" />
+                            </div>
+                        </div>
+                    </div>
                     <canvas id="game-canvas" style={{ height: "110vh", width: 1600, backgroundColor: 'gray' }}></canvas>
                     <div className="button-wrapper">
+                        
                         <button onClick={this.handleOnClick} className="session-button">Logout</button>
                     </div>
                    

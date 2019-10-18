@@ -22,6 +22,10 @@
   font-family: 'Press Start 2P';
 }
 
+.session-modal-input:hover {
+  background-color: rgb(238, 238, 224)
+}
+
 .session-modal-submit {
     color:white;
     text-align: center;
@@ -37,4 +41,9 @@
     padding-bottom: 8px;
     transform: translateX(80px);
     font-family: 'Press Start 2P';
+}
+
+.session-modal-submit:hover {
+    background-color: rgb(65, 240, 56);
+    border: 1px solid rgb(65, 240, 56);
 }

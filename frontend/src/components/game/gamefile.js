@@ -165,6 +165,6 @@ GameFile.BG_COLOR = "lightgray";
 GameFile.DIM_X = 1000;
 GameFile.DIM_Y = 600;
 GameFile.FPS = 32;
-GameFile.NUM_ALIENCHASERS = 2;
+GameFile.NUM_ALIENCHASERS = 0;
 
 export default GameFile;
