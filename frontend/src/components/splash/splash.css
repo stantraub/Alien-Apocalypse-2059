@@ -227,3 +227,30 @@
     border: white solid 2px;
     border-radius: 6px;
 }
+
+#mute-switch {
+    font-family: 'Press Start 2P';
+    font-size: 15px;
+    height: 45px;
+    box-sizing: border-box;
+    margin-right: 10px;
+    margin-left: 10px;
+    border-radius: 6px;
+    padding-bottom: 5px;
+    padding-right: 20px;
+    padding-left: 20px;
+    display: inline-block;
+    margin-top: 20px;
+    background-color: blue;
+    box-shadow: inset 0px -7px 0px 0px darkblue;
+    color: white;
+    text-decoration: none;
+    text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
+    cursor: pointer;
+    position: absolute;
+}
+
+#mute-switch:hover {
+    background-color: rgb(14, 235, 66);
+    box-shadow: inset 0px -7px 0px 0px green;
+}
