@@ -1,5 +1,5 @@
 # MERN Sideshooter Project Proposal
-[Live Link](https://alienapocalypse2059.herokuapp.com/#/)
+[Live Link](https://alienapocalypse2059.herokuapp.com/#/) 
 ## Background and Overview
 
 We will be creating a top-down zombie shooter game. The game will consist of waves with progressively harder difficulty  determined by the amount of zombies on the map as well as different pathfinding algorithms.
