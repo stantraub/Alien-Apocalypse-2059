@@ -30,7 +30,8 @@
     
     position: absolute;
     z-index: 2;
-    bottom: 650px;
+    /* bottom: 650px; */
+    top: 100px;
     width: 1200px;
     left: 17%;
     color: white;
@@ -154,7 +155,7 @@
     position: absolute;
     flex-direction: column;
     justify-content: center;
-    bottom: 380px;
+    top: 350px;
     margin-left: 36%;
     text-align: left;
     padding: 10px;;
@@ -181,7 +182,7 @@
     height: 50vh; */
     flex-direction: column;
     justify-content: center;
-    bottom: 550px;
+    top: 250px;
     margin-left: 43%;
     text-align: left;
     padding: 10px;;
