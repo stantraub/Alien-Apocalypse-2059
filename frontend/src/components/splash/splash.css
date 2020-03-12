@@ -51,7 +51,7 @@
     border-radius: 6px;
     z-index: 2;
     position: absolute;
-    bottom: 265px;
+    top: 550px;
     left: 30%;
     /* background-color: lightgray; */
     height: 80px;
