@@ -67,7 +67,6 @@ class ImmoveableObject {
          else if(this.checkYBelow(otherObject) && this.checkX(otherObject)){
            otherObject.y = this.y+this.height;
           otherObject.yVel=0;
-          console.log(otherObject.yVel);
          }
         } 
         return false;
